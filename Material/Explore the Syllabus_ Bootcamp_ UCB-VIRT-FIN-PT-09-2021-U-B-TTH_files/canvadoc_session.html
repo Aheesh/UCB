@@ -1,0 +1,1845 @@
+
+<!-- saved from url=(0417)https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocViewer</title>
+
+  <link rel="stylesheet" type="text/css" href="./docviewer.css">
+  <script>
+    window.DocViewer = {
+      cdnPrefix: function () { return "//d3qz995is0z3gl.cloudfront.net/null/" },
+      sessionData: {"document_id":"IZfDUFMjvHIx7oEJmvIHqH5c77S_tf","urls":{"pdf_download":"/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/file/file.pdf"},"locale":"en","region":"none","rotations":{},"viewer":"pdfjs","pdfjs":{"documentName":"FinTech%20Online%20Boot%20Camp%20Syllabus.pdf","url":"/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/file/file.pdf"}},
+      ravenDsn: "https://0b208e0e232e4ec08925525b51e2ea13@sentry.insops.net/150",
+      ravenConfig: {"release":"local","environment":"prod-pdx","tags":{"pool":"web"}},
+      document: {"id":"IZfDUFMjvHIx7oEJmvIHqH5c77S_tf","rotations":{}},
+      start: Date.now()
+    }
+  </script>
+  <script src="./main.6ee531e71adec5031ee9.bundle.js" defer=""></script>
+  <script src="./raven.min.js"></script>
+  <script>
+  if (window.DocViewer.ravenDsn) {
+    Raven.config(
+      window.DocViewer.ravenDsn,
+      window.DocViewer.ravenConfig
+    ).install()
+  }
+  </script>
+<style>@import url(https://fonts.googleapis.com/css?family=Lato:400,
+  100,
+  100italic,
+  300,
+  300italic,
+  400italic,
+  700,
+  700italic,
+  900,
+  900italic);</style><style>body {
+  background-color: #f2f2f2;
+}
+
+button {
+  border-radius: 0;
+}
+
+body,
+textarea {
+  font-family: Lato, sans-serif;
+}
+
+h1 {
+  font-size: inherit;
+  font-weight: normal;
+}
+
+a {
+  color: #008ee2;
+  cursor: pointer;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/*
+.Page > .page {
+  margin: auto;
+  position: relative;
+  box-shadow: 0 0 3px #bbb;
+}
+*/
+
+/* prevents comment text from being selected while dragging annotation */
+.selection-disabled {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#App {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.Pages {
+  padding: 32px;
+  padding-top: 42px;
+  flex: 1;
+  background-color: #f2f2f2;
+  overflow: auto;
+}
+
+.Pen-is-annotating {
+  touch-action: none;
+}
+
+.Page--not-rendered .textLayer div {
+  background-color: #ccc;
+}
+
+.inst-button {
+  background-color: #f5f5f5;
+  border-radius: 3px;
+  border: 1px solid #dbdbdb;
+  padding: 6px;
+  cursor: pointer;
+  color: #394b58;
+  outline: none;
+}
+
+.inst-button:focus {
+  outline: none;
+}
+
+.inst-button::-moz-focus-inner {
+  border: 0;
+}
+
+.inst-button--flat {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.inst-button:hover {
+  background-color: #dbdbdb;
+  border-color: #dbdbdb;
+}
+
+.inst-button--flat:hover {
+  background-color: transparent;
+}
+
+.inst-button:focus {
+  border-color: #38a7e8;
+  outline: none;
+}
+
+.inst-button:active {
+  box-shadow: inset 0px 0px 2px #000000;
+}
+
+.screenreader-only {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  overflow: hidden;
+  height: 0;
+}
+
+.DocViewer--error {
+  border: 1px solid red;
+  background-color: #ffe4e1;
+}
+
+.Pages-has-secondary-toolbar {
+  padding-top: 0px;
+  margin-top: 42px;
+}
+</style><style>.ViewerControls {
+  background-color: #556572;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 24px;
+  overflow-x: auto;
+}
+
+@media (min-width: 938px) {
+  .ViewerControls--with-annotations {
+    height: 48px;
+  }
+  .SecondaryControls {
+    top: 48px;
+  }
+}
+
+@media (max-width: 937px) {
+  .ViewerControls--with-annotations {
+    height: 98px;
+  }
+  .SecondaryControls {
+    top: 98px;
+  }
+}
+
+.ViewerControls-primary {
+  pointer-events: all;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.ViewerControls--title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.ViewerControls--download {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.ViewerControls--current-page {
+  -moz-appearance: textfield;
+  margin-top: 10px;
+  border-radius: 3px;
+  border: 0;
+  height: 28px;
+  width: 36px;
+  background-color: #ffffff;
+  color: #596c79;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: top;
+}
+.ViewerControls--current-page::-webkit-outer-spin-button,
+.ViewerControls--current-page::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ViewerControls--page-controls {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+</style><style>.download-button--icon {
+  color: inherit;
+  display: inline-block;
+  font-size: 24px;
+  margin-right: 12px;
+  vertical-align: top;
+}
+
+.download-button--content {
+  padding: 24px;
+}
+
+.download-button--list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.download-button--item {
+  font-size: 13px;
+  color: #394b58;
+}
+
+.download-button--item + .download-button--item {
+  border-top: 1px solid #b9c0c6;
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+.download-button--button {
+  background-color: transparent;
+  font-size: 16px;
+  border: none;
+  height: 48px;
+  width: 48px;
+}
+
+.download-button--button:hover {
+  background-color: #5f707b;
+}
+</style><style>.AnnotationControls {
+  display: flex;
+  align-items: center;
+}
+</style><style>.AnnotationControlButton {
+  width: 48px;
+  padding: 0;
+  border: 0 none;
+  color: #ffffff;
+  background-color: #556572;
+  margin-top: 0;
+  margin-bottom: 0;
+  cursor: pointer;
+  box-sizing: content-box;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /*will-change: background-color, color, border, outline;*/
+}
+
+.AnnotationControlButton:disabled {
+  opacity: 0.4;
+}
+
+.AnnotationControlButton-outer {
+  box-sizing: content-box;
+  width: 44px;
+  margin: 1px;
+  display: flex;
+  border: 1px solid #556572;
+}
+
+.AnnotationControlButton-inner {
+  margin: 0;
+  height: 44px;
+  width: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: content-box;
+}
+
+.AnnotationControlButton-inner svg,
+.AnnotationControlButton-inner img {
+  fill: red;
+}
+
+.AnnotationControlButton:hover:enabled {
+  background-color: #5f707b;
+  /*border-color: #556572;*/
+}
+
+.AnnotationControlButton.selected:hover:enabled {
+  background-color: #f5f5f5;
+  border-color: #f5f5f5;
+}
+
+.AnnotationControlButton:hover:enabled .AnnotationControlButton-outer {
+  border-color: #5f707b;
+}
+
+.AnnotationControlButton:focus {
+  border-color: #b5bcc2;
+  outline: none;
+}
+
+.AnnotationControlButton:focus .AnnotationControlButton-outer {
+  border-color: #38a7e8; /* or perhaps #B5BCC2 */
+}
+
+.AnnotationControlButton:active .AnnotationControlButton-outer {
+  box-shadow: inset 0px 0px 2px #000000;
+}
+
+.AnnotationControlButton.selected {
+  outline: none;
+  background-color: white;
+}
+
+.AnnotationControlButton.selected .AnnotationControlButton-outer {
+  border-color: white;
+  border: 1px solid white;
+  color: #556572;
+}
+
+.AnnotationControlButton.selected:focus .AnnotationControlButton-outer {
+  border: 1px solid #38a7e8;
+}
+</style><style>.DocumentControls {
+  display: flex;
+  align-items: center;
+}
+</style><style>.SecondaryControls {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-bottom: 1px solid #d2d1d1;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: inherit;
+  pointer-events: all;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  /*
+    possible alternative to z-index here is using a React portal with the
+    element placed at end of #App
+  */
+  z-index: 10;
+  cursor: auto;
+  touch-action: none;
+  overflow-x: auto;
+  transform: translateX(0);
+}
+
+.SecondaryControls-label {
+  margin-left: 30px;
+  color: #556572;
+  font-size: 14px;
+}
+
+.SecondaryControls-buttons {
+  display: flex;
+  cursor: default;
+  align-items: center;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.SecondaryControls-annotation {
+  display: flex;
+  cursor: default;
+  align-items: center;
+}
+</style><style>.ColorButton {
+  border: 0 none;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.ColorButton-inner {
+  display: inline-block;
+  padding: 0 2px;
+  margin: 8px 0px;
+}
+
+.ColorButton-selection-circle {
+  r: 10.5;
+}
+
+.ColorButton:active .ColorButton-selection-circle {
+  r: 11;
+}
+
+.ColorButton:focus .ColorButton-selection-circle {
+  stroke: #38a7e8;
+}
+
+.ColorButton-main-circle {
+  r: 8.5;
+}
+
+.ColorButton:active .ColorButton-main-circle {
+  r: 9.25;
+}
+
+.ColorButton:focus {
+  outline: none;
+}
+
+.ColorButton:-moz-focusring {
+  outline: none;
+}
+
+.ColorButton::-moz-focus-inner {
+  border: 0;
+}
+</style><style>.page-number {
+  margin-top: 10px;
+}
+
+.Page-container {
+  margin: auto;
+  display: flex;
+}
+
+.PageContainerComments {
+  flex: 1;
+  position: relative;
+  overflow: auto;
+  width: 365px;
+}
+
+.Page {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  position: relative;
+  box-sizing: content-box;
+}
+
+.Page:focus {
+  outline: none;
+}
+
+.Page:focus .pageContainer {
+  border-color: #7fbaf7;
+}
+
+/* classname generated by pdfjs */
+.pageContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.PDFAnnotationLayer-container .textWidgetAnnotation {
+  font-family: auto;
+  font-size: small;
+}
+
+.Draw--highlight .PDFAnnotationLayer-container,
+.Draw--strikeout .PDFAnnotationLayer-container {
+  pointer-events: none;
+}
+
+.Page-inner {
+  margin: auto;
+  position: absolute;
+}
+
+.Page-show-previous-comments-button {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 334px;
+  background-color: #f2f2f2;
+  color: #3e8bdc;
+  height: 32px;
+  border: 0 none;
+  border-bottom: 1px solid #a7aeb4;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.Page-comment-line {
+  box-shadow: rgb(0, 0, 0) 0px 10px 15px -13px inset;
+  width: 90%;
+  margin-left: 22px;
+  height: 1px;
+}
+
+.Page-comment-line-top-margin {
+  margin-top: 50px;
+}
+
+.Page-comment-shadow {
+  position: relative;
+  z-index: 5;
+  height: 20px;
+  width: 83%;
+}
+
+.Page-comment-top-shadow {
+  box-shadow: 0px 10px 15px -13px #000 inset;
+  margin: 0px 15px -20px 35px;
+}
+
+.Page-comment-bottom-shadow {
+  box-shadow: 0px -10px 15px -13px #000 inset;
+  margin: -20px 15px 0px 35px;
+}
+
+.annotationLayer .textWidgetAnnotation input,
+.annotationLayer .textWidgetAnnotation textarea,
+.annotationLayer .buttonWidgetAnnotation.checkBox input,
+.annotationLayer .buttonWidgetAnnotation.radioButton input {
+  -webkit-appearance: none;
+  color: black !important;
+  background-color: #dce4ff !important;
+  font: unset !important;
+  font-size: unset !important;
+}
+
+.annotationLayer .choiceWidgetAnnotation select,
+.annotationLayer .choiceWidgetAnnotation select option:disabled,
+.annotationLayer .choiceWidgetAnnotation select option:disabled:checked {
+  -webkit-appearance: none;
+  background-color: #dce4ff !important;
+  font: unset !important;
+  font-size: unset !important;
+}
+</style><style>/* Copyright 2014 Mozilla Foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.textLayer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 0.2;
+  line-height: 1;
+}
+
+.textLayer > span {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+}
+
+.textLayer .highlight {
+  margin: -1px;
+  padding: 1px;
+
+  background-color: rgb(180, 0, 170);
+  border-radius: 4px;
+}
+
+.textLayer .highlight.begin {
+  border-radius: 4px 0px 0px 4px;
+}
+
+.textLayer .highlight.end {
+  border-radius: 0px 4px 4px 0px;
+}
+
+.textLayer .highlight.middle {
+  border-radius: 0px;
+}
+
+.textLayer .highlight.selected {
+  background-color: rgb(0, 100, 0);
+}
+
+.textLayer ::selection {
+  background: rgb(0, 0, 255);
+}
+
+.textLayer .endOfContent {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.textLayer .endOfContent.active {
+  top: 0px;
+}
+
+.annotationLayer section {
+  position: absolute;
+}
+
+.annotationLayer .linkAnnotation > a,
+.annotationLayer .buttonWidgetAnnotation.pushButton > a {
+  position: absolute;
+  font-size: 1em;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.annotationLayer .linkAnnotation > a:hover,
+.annotationLayer .buttonWidgetAnnotation.pushButton > a:hover {
+  opacity: 0.2;
+  background: #ff0;
+  box-shadow: 0px 2px 10px #ff0;
+}
+
+.annotationLayer .textAnnotation img {
+  position: absolute;
+  cursor: pointer;
+}
+
+.annotationLayer .textWidgetAnnotation input,
+.annotationLayer .textWidgetAnnotation textarea,
+.annotationLayer .choiceWidgetAnnotation select,
+.annotationLayer .buttonWidgetAnnotation.checkBox input,
+.annotationLayer .buttonWidgetAnnotation.radioButton input {
+  background-color: rgba(0, 54, 255, 0.13);
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  font-size: 9px;
+  height: 100%;
+  margin: 0;
+  padding: 0 3px;
+  vertical-align: top;
+  width: 100%;
+}
+
+.annotationLayer .choiceWidgetAnnotation select option {
+  padding: 0;
+}
+
+.annotationLayer .buttonWidgetAnnotation.radioButton input {
+  border-radius: 50%;
+}
+
+.annotationLayer .textWidgetAnnotation textarea {
+  font: message-box;
+  font-size: 9px;
+  resize: none;
+}
+
+.annotationLayer .textWidgetAnnotation input[disabled],
+.annotationLayer .textWidgetAnnotation textarea[disabled],
+.annotationLayer .choiceWidgetAnnotation select[disabled],
+.annotationLayer .buttonWidgetAnnotation.checkBox input[disabled],
+.annotationLayer .buttonWidgetAnnotation.radioButton input[disabled] {
+  background: none;
+  border: 1px solid transparent;
+  cursor: not-allowed;
+}
+
+.annotationLayer .textWidgetAnnotation input:hover,
+.annotationLayer .textWidgetAnnotation textarea:hover,
+.annotationLayer .choiceWidgetAnnotation select:hover,
+.annotationLayer .buttonWidgetAnnotation.checkBox input:hover,
+.annotationLayer .buttonWidgetAnnotation.radioButton input:hover {
+  border: 1px solid #000;
+}
+
+.annotationLayer .textWidgetAnnotation input:focus,
+.annotationLayer .textWidgetAnnotation textarea:focus,
+.annotationLayer .choiceWidgetAnnotation select:focus {
+  background: none;
+  border: 1px solid transparent;
+}
+
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:before,
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:after,
+.annotationLayer .buttonWidgetAnnotation.radioButton input:checked:before {
+  background-color: #000;
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:before,
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:after {
+  height: 80%;
+  left: 45%;
+  width: 1px;
+}
+
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:before {
+  transform: rotate(45deg);
+}
+
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:after {
+  transform: rotate(-45deg);
+}
+
+.annotationLayer .buttonWidgetAnnotation.radioButton input:checked:before {
+  border-radius: 50%;
+  height: 50%;
+  left: 30%;
+  top: 20%;
+  width: 50%;
+}
+
+.annotationLayer .textWidgetAnnotation input.comb {
+  font-family: monospace;
+  padding-left: 2px;
+  padding-right: 0;
+}
+
+.annotationLayer .textWidgetAnnotation input.comb:focus {
+  /*
+   * Letter spacing is placed on the right side of each character. Hence, the
+   * letter spacing of the last character may be placed outside the visible
+   * area, causing horizontal scrolling. We avoid this by extending the width
+   * when the element has focus and revert this when it loses focus.
+   */
+  width: 115%;
+}
+
+.annotationLayer .buttonWidgetAnnotation.checkBox input,
+.annotationLayer .buttonWidgetAnnotation.radioButton input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0;
+}
+
+.annotationLayer .popupWrapper {
+  position: absolute;
+  width: 20em;
+}
+
+.annotationLayer .popup {
+  position: absolute;
+  z-index: 200;
+  max-width: 20em;
+  background-color: #ffff99;
+  box-shadow: 0px 2px 5px #888;
+  border-radius: 2px;
+  padding: 6px;
+  margin-left: 5px;
+  cursor: pointer;
+  font: message-box;
+  font-size: 9px;
+  word-wrap: break-word;
+}
+
+.annotationLayer .popup > * {
+  font-size: 9px;
+}
+
+.annotationLayer .popup h1 {
+  display: inline-block;
+}
+
+.annotationLayer .popup span {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.annotationLayer .popup p {
+  border-top: 1px solid #333;
+  margin-top: 2px;
+  padding-top: 2px;
+}
+
+.annotationLayer .highlightAnnotation,
+.annotationLayer .underlineAnnotation,
+.annotationLayer .squigglyAnnotation,
+.annotationLayer .strikeoutAnnotation,
+.annotationLayer .freeTextAnnotation,
+.annotationLayer .lineAnnotation svg line,
+.annotationLayer .squareAnnotation svg rect,
+.annotationLayer .circleAnnotation svg ellipse,
+.annotationLayer .polylineAnnotation svg polyline,
+.annotationLayer .polygonAnnotation svg polygon,
+.annotationLayer .caretAnnotation,
+.annotationLayer .inkAnnotation svg polyline,
+.annotationLayer .stampAnnotation,
+.annotationLayer .fileAttachmentAnnotation {
+  cursor: pointer;
+}
+
+.pdfViewer .canvasWrapper {
+  overflow: hidden;
+}
+
+.pdfViewer .page {
+  direction: ltr;
+  width: 816px;
+  height: 1056px;
+  margin: 1px auto -8px auto;
+  position: relative;
+  overflow: visible;
+  border: 9px solid transparent;
+  background-clip: content-box;
+  /* -o-border-image: url(images/shadow.png) 9 9 repeat;
+     border-image: url(images/shadow.png) 9 9 repeat; */
+  background-color: white;
+}
+
+.pdfViewer.removePageBorders .page {
+  margin: 0px auto 10px auto;
+  border: none;
+}
+
+.pdfViewer.singlePageView {
+  display: inline-block;
+}
+
+.pdfViewer.singlePageView .page {
+  margin: 0;
+  border: none;
+}
+
+.pdfViewer.scrollHorizontal,
+.pdfViewer.scrollWrapped,
+.spread {
+  margin-left: 3.5px;
+  margin-right: 3.5px;
+  text-align: center;
+}
+
+.pdfViewer.scrollHorizontal,
+.spread {
+  white-space: nowrap;
+}
+
+.pdfViewer.removePageBorders,
+.pdfViewer.scrollHorizontal .spread,
+.pdfViewer.scrollWrapped .spread {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.spread .page,
+.pdfViewer.scrollHorizontal .page,
+.pdfViewer.scrollWrapped .page,
+.pdfViewer.scrollHorizontal .spread,
+.pdfViewer.scrollWrapped .spread {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.spread .page,
+.pdfViewer.scrollHorizontal .page,
+.pdfViewer.scrollWrapped .page {
+  margin-left: -3.5px;
+  margin-right: -3.5px;
+}
+
+.pdfViewer.removePageBorders .spread .page,
+.pdfViewer.removePageBorders.scrollHorizontal .page,
+.pdfViewer.removePageBorders.scrollWrapped .page {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.pdfViewer .page canvas {
+  margin: 0;
+  display: block;
+}
+
+.pdfViewer .page canvas[hidden] {
+  display: none;
+}
+
+.pdfViewer .page .loadingIcon {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* background: url('images/loading-icon.gif') center no-repeat; */
+}
+
+.pdfPresentationMode .pdfViewer {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.pdfPresentationMode .pdfViewer .page,
+.pdfPresentationMode .pdfViewer .spread {
+  display: block;
+}
+
+.pdfPresentationMode .pdfViewer .page,
+.pdfPresentationMode .pdfViewer.removePageBorders .page {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pdfPresentationMode:-webkit-full-screen .pdfViewer .page {
+  margin-bottom: 100%;
+  border: 0;
+}
+
+.pdfPresentationMode:fullscreen .pdfViewer .page {
+  margin-bottom: 100%;
+  border: 0;
+}
+</style><style>.Page-canvas-container {
+  box-sizing: border-box;
+  border: 1px solid #babfc6;
+  overflow: hidden;
+}
+
+.Page-canvas-container--hidden > * {
+  display: none;
+}
+</style><style>.PageComments {
+  overflow: scroll;
+  position: absolute;
+}
+
+.PageAnnotations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.PageAnnotations.is-dragging,
+.PageAnnotations.is-dragging rect,
+.PageAnnotations.is-dragging path {
+  pointer-events: none;
+}
+
+.PageAnnotations.is-dragging .Annotation--selected {
+  pointer-events: none;
+}
+
+/* Don't intefere with drawing or dragging */
+.PageAnnotations.is-dragging .Annotation:not(.Annotation--selected),
+.PageAnnotations.is-dragging .FreetextGroup:not(.FreetextGroup--active) {
+  pointer-events: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.PageAnnotations.is-dragging,
+.PageAnnotations.is-dragging .Annotation,
+.PageAnnotations.is-dragging .FreetextGroup--active {
+  cursor: move !important;
+}
+
+.PageAnnotations.is-drawing .Annotation,
+.PageAnnotations.is-drawing .Annotation-svg,
+.PageAnnotations.is-drawing .FreetextGroup {
+  pointer-events: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.PageAnnotations .AnnotationToolbar {
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+}
+
+.PageAnnotations.is-drawing .AnnotationToolbar {
+  display: none;
+}
+
+.PageAnnotations.is-drawing,
+.PageAnnotations.is-drawing .FreetextGroup {
+  pointer-events: none;
+}
+
+.CommentContainerOffset {
+  position: absolute;
+  width: 1px;
+}
+</style><style>.Annotation {
+  pointer-events: none;
+  outline: none;
+}
+
+/* Don't intefere with drawing or dragging */
+.Page.is-multistroke-drawing .Annotation {
+  pointer-events: none;
+}
+
+.Annotation--selected {
+  touch-action: none;
+}
+
+.AnnotationToolbar-container {
+  position: absolute;
+  bottom: calc(100% - 1px);
+  left: 2px;
+  z-index: 2; /* ensures that the delete button is over other annotations */
+}
+
+.AnnotationToolbar {
+  pointer-events: all;
+  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 6px 4px;
+  background-color: #556572;
+  color: #ffffff;
+}
+
+.AnnotationTooltip {
+  margin-left: 2px;
+  margin-right: 2px;
+  font-size: 10pt;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: content-box;
+  text-align: left;
+  cursor: text;
+}
+
+.Annotation-button {
+  cursor: pointer;
+  color: #394b58;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  padding: 2px;
+}
+
+.Annotation-button:focus,
+.Annotation-button:hover {
+  border-color: #dbdbdb;
+}
+
+.Annotation-svg {
+  position: absolute;
+}
+
+.Annotation-svg.is-dragging {
+  pointer-events: all;
+}
+
+.Annotation-svg-container {
+  outline: none;
+  position: absolute;
+  z-index: 1; /* Without this highlights in Safari are opaque */
+}
+
+/* https://github.com/mozilla/pdf.js/issues/5513#issuecomment-384709286 */
+/* This fixes multi line selection in Edge */
+.textLayer > span {
+  color: transparent;
+  position: relative; /*<-- changed to relative */
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+  display: block; /* <-- added */
+  float: left; /* <-- added */
+  margin-bottom: -100%; /* <-- added */
+  margin-right: -100%; /* <-- added */
+}
+</style><style>.Comment-create {
+  border-radius: 50px;
+  background-color: white;
+  border: 2px solid #b9c0c6;
+  width: 50px;
+  height: 50px;
+  left: -24px;
+  position: absolute;
+  right: 0;
+  pointer-events: all;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.Comment-create:focus {
+  outline: none;
+  border-color: #38a7e8;
+}
+
+.Comment-create::-moz-focus-inner {
+  border: 0;
+}
+</style><style>.Annotation .CommentLine {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2; /* So that downward lines will hover over subsequent pages */
+}
+</style><style></style><style>.CommentGroup {
+  border: none;
+  border-radius: 6px;
+  pointer-events: all;
+  background-color: white;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  position: absolute;
+  width: 290px;
+  box-sizing: content-box;
+  left: 34px;
+
+  /* http://stackoverflow.com/a/27971913/176758 */
+  transform: translateZ(0);
+  transition: top 0.3s ease-out;
+  margin-top: 0;
+  list-style-type: none;
+  padding: 0;
+}
+
+.CommentGroup .Comment2 {
+  content: ' ';
+  position: absolute;
+  z-index: -2;
+  top: 4px;
+  left: 4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid #c6ccd0;
+  background-color: white;
+  border-radius: 6px;
+}
+
+.CommentGroup .Comment3 {
+  content: ' ';
+  position: absolute;
+  z-index: -3;
+  top: 8px;
+  left: 8px;
+  right: -8px;
+  bottom: -8px;
+  border: 2px solid #c6ccd0;
+  background-color: white;
+  border-radius: 6px;
+}
+
+.Page.selection-disabled .CommentGroup {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.CommentGroup:focus {
+  outline: none;
+}
+
+.CommentGroup--active {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.14);
+  z-index: 3;
+}
+
+.Comment-content {
+  padding-left: 6px;
+  padding-right: 6px;
+  position: relative;
+}
+
+.CommentGroup-textarea,
+.CommentGroup-textarea[disabled] {
+  -webkit-opacity: 1;
+  -webkit-text-fill-color: black;
+  color: black;
+  background-color: white;
+  border: 1px solid transparent;
+  width: 235px;
+  height: 16px;
+  margin-left: 29px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  margin-top: 2px;
+  font-size: 0.9rem;
+  resize: none;
+  box-sizing: content-box;
+}
+
+.CommentGroup-textarea:focus {
+  border: 1px solid #31a4e7;
+  outline: none;
+  transition: border 0.3s;
+}
+
+/*.CommentGroup-textarea:hover:not(:focus) {
+  border-color: #B8B8B8;
+}*/
+
+.CommentGroup-hr {
+  background-color: #b9c0c6;
+  margin: 10px 0 10px;
+  height: 1px;
+  border: 0 none;
+}
+
+.CommentGroup-aria-notify {
+  font-size: 0px;
+  height: 0px;
+}
+</style><style>.CommentReplyForm {
+  text-align: right;
+}
+
+.Comment-reply-button {
+  margin: 6px;
+}
+
+.Comment-reply-button::-moz-focus-inner {
+  border: 0;
+}
+
+.CommentReplyForm-inner.hidden {
+  display: none;
+}
+
+.CommentReplyForm .CommentReplyForm-inner {
+  border-top: 1px solid #b9c0c6;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom: 2px solid #c6ccd0;
+  border-right: 2px solid #c6ccd0;
+  border-left: 2px solid #c6ccd0;
+}
+
+.Comment:not(:first-of-type) {
+  border-top: 1px solid #b9c0c6;
+}
+
+.Comment-title {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.Comment-title-username {
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 8px;
+  margin-bottom: 6px;
+  flex: 1;
+}
+
+.Comment-edit-buttons {
+  position: absolute;
+  margin-top: 2px;
+  margin-right: 2px;
+  right: 0;
+  top: 0;
+}
+
+.Comment-icon {
+  margin-top: 8px;
+}
+
+.Comment-icon {
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+.Comment-icon svg {
+  width: 20px;
+}
+
+.Comment-title svg {
+  height: 20px;
+  width: 16px;
+}
+
+.Comment-title-usernameExtraMargin {
+  margin-left: 38px;
+}
+
+.Comment {
+  border-right: 2px solid #c6ccd0;
+  border-left: 2px solid #c6ccd0;
+  background-color: white;
+}
+
+.Comment:first-of-type,
+.Comment-root-comment {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-top: 2px solid #c6ccd0;
+}
+
+/* The last child is the reply form, so apply these styles if the comment reply
+   form is hidden and this is the last comment.  Or if this is the reply form */
+.Comment-isAtBottom,
+.Comment-isReplyForm {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom: 2px solid #c6ccd0;
+}
+
+.CommentsContainer .CommentGroup .Comment-deleted {
+  border: 2px solid #ee0512;
+}
+
+.Comment-deleteMessage {
+  width: 100%;
+  background-color: #ee0512;
+  color: #ffffff;
+  display: flex;
+}
+
+.Comment-deleteMessage p {
+  color: #ffffff;
+  padding: 10px;
+  margin: 0;
+  flex: 1;
+}
+
+.Comment-deleteMessage button {
+  margin-right: 5px;
+}
+
+.CommentGroup:focus .Comment {
+  border-right-color: #38a7e8;
+  border-left-color: #38a7e8;
+}
+
+.CommentGroup:focus .Comment:first-child {
+  border-top-color: #38a7e8;
+}
+
+/* The last child is the reply form, so apply these styles if the comment reply
+   form is hidden and this is the last comment.  Or if this is the reply form.
+   Only apply if the parent CommentGroup is focused. */
+.CommentGroup:focus .Comment:not(.Comment-replyFormVisible):nth-last-child(2),
+.CommentGroup:focus .Comment-isReplyForm {
+  border-bottom-color: #38a7e8;
+}
+
+.CommentGroup:focus .CommentReplyForm-inner {
+  border-bottom-color: #38a7e8;
+  border-left-color: #38a7e8;
+  border-right-color: #38a7e8;
+  outline: none;
+}
+
+.Comment-reply-number {
+  margin-left: 30px;
+  padding-bottom: 12px;
+  padding-top: 2px;
+  font-size: 14px;
+  color: #38a7e8;
+  font-weight: 300;
+}
+</style><style>.ExpandableIcon {
+  bottom: 4px;
+  background-color: white;
+  border: 0 none;
+  color: #3a8fdd;
+  cursor: pointer;
+  font: inherit;
+  pointer-events: none;
+  position: absolute;
+  right: 6px;
+}
+
+textarea:focus + .ExpandableIcon {
+  display: none;
+}</style><style>.GenericPopup {
+  position: fixed;
+  margin: 0 auto;
+  margin-left: 50px;
+  margin-top: -25px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  display: flex;
+  pointer-events: visible;
+  width: 600px;
+  left: 50%;
+  margin-left: -300px;
+  z-index: 3;
+}
+
+.GenericPopup:focus {
+  outline: none;
+}
+
+@media (min-width: 938px) {
+  .GenericPopup {
+    top: 120px;
+  }
+}
+
+@media (max-width: 937px) {
+  .GenericPopup {
+    top: 170px;
+  }
+}
+
+.GenericPopup-warning {
+  border: 2px solid #fc5d13;
+}
+
+.GenericPopup-alert {
+  border: 2px solid #008ee1;
+}
+
+.GenericPopup-button {
+  font-family: inherit;
+  font-size: inherit;
+  margin: 2px;
+  padding: 10px 20px 5px 20px;
+}
+
+.GenericPopup-confirm-button {
+  background-color: #0291e0;
+  border: 2px solid #017bc3;
+  color: #ffffff;
+}
+
+.GenericPopup-confirm-button:hover {
+  background-color: #017bc3;
+  border: 2px solid #017bc3;
+}
+</style><style>.SelectionBox {
+  pointer-events: none;
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+}
+
+.Annotation-svg-container:focus .SelectionBox-rect {
+  stroke: #38a7e8;
+  stroke-dasharray: 0;
+}
+
+.PageAnnotations.is-dragging .SelectionBox {
+  display: none;
+}
+</style><style>.InkAnnotation {
+  pointer-events: none;
+}
+
+.Draw--not-drawing .InkAnnotation--saved path,
+.Draw--not-drawing .InkAnnotation--saved line {
+  pointer-events: visiblePainted;
+}
+
+.Draw--not-drawing .InkAnnotation--editable.InkAnnotation--saved path,
+.Draw--not-drawing .InkAnnotation--editable.InkAnnotation--saved line {
+  cursor: move;
+}
+
+.InkStrokeWidthButton {
+  outline: none;
+  color: #556572;
+  border: 3px solid #ffffff;
+  border-radius: 21px;
+  background-color: #ffffff;
+  padding: 3px;
+}
+
+.InkStrokeWidthButton.selected {
+  border-color: #72818C;
+}
+
+.InkStrokeWidthButton:hover {
+  border-color: #dbdbdb;
+}
+
+.InkStrokeWidthButton:focus {
+  border-color: #72818C;
+}
+
+.InkStrokeWidthButton-outer {
+  display: flex;
+  width: 21px;
+  height: 21px;
+  align-items: center;
+  justify-content: center;
+}
+</style><style>.SquareAnnotation {
+  pointer-events: none;
+}
+
+.Draw--not-drawing .SquareAnnotation-presentation-rect,
+.Draw--not-drawing .SquareAnnotation-presentation-rect-hitpath {
+  pointer-events: visiblePainted;
+}
+
+.Draw--not-drawing .SquareAnnotation--editable .SquareAnnotation-presentation-rect,
+.Draw--not-drawing .SquareAnnotation--editable .SquareAnnotation-presentation-rect-hitpath {
+  cursor: move;
+}
+
+.Draw--is-pointer-down .SquareAnnotation-presentation-rect,
+.Draw--is-pointer-down .SquareAnnotation-presentation-rect-hitpath {
+  pointer-events: none;
+}
+</style><style>.HighlightAnnotationContainer {
+  mix-blend-mode: multiply;
+}
+
+.HighlightAnnotation {
+  pointer-events: none;
+}
+
+.Draw--not-drawing .HighlightAnnotation rect {
+  pointer-events: visible;
+  cursor: default;
+}
+
+.Draw--is-pointer-down .HighlightAnnotation rect {
+  pointer-events: none;
+}
+
+.Annotation--selected
+  .Annotation-svg-container:not(:focus)
+  .HighlightAnnotation
+  rect {
+  stroke: #bbb;
+  stroke-dasharray: 3;
+}
+
+.Annotation-svg-container:focus .HighlightAnnotation rect {
+  stroke: #38a7e8;
+}
+
+.Annotation:hover:not(.Annotation--selected) .HighlightAnnotation rect {
+  stroke: #bbb;
+  stroke-dasharray: 3;
+}
+</style><style>.StrikeoutAnnotation {
+  pointer-events: none;
+}
+
+.Draw--not-drawing .StrikeoutAnnotation rect {
+  pointer-events: visiblePainted;
+  cursor: default;
+}
+
+.Draw--is-pointer-down .StrikeoutAnnotation rect {
+  pointer-events: none;
+}
+
+.Annotation--selected
+  .Annotation-svg-container:not(:focus)
+  .StrikeoutAnnotation
+  rect {
+  stroke: #bbb;
+  stroke-dasharray: 3;
+}
+
+.Annotation-svg-container:focus .StrikeoutAnnotation rect {
+  stroke: #38a7e8;
+}
+
+.Annotation:hover:not(.Annotation--selected) .StrikeoutAnnotation rect {
+  stroke: #bbb;
+  stroke-dasharray: 3;
+}
+</style><style>.PointAnnotation {
+  pointer-events: none;
+}
+
+.Draw--not-drawing .PointAnnotation path {
+  pointer-events: visiblePainted;
+}
+
+.Draw--not-drawing .PointAnnotation--editable path {
+  cursor: move;
+}
+
+.Draw--is-pointer-down .PointAnnotation path {
+  pointer-events: none;
+}
+</style><style>.FreetextGroup {
+  pointer-events: all;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  position: absolute;
+  will-change: auto;
+  display: inline-block;
+  box-sizing: content-box;
+  padding: 6px;
+}
+
+.FreetextGroup:focus {
+  border: 1px solid #31a4e7;
+  outline: 1px dashed #bbb;
+}
+
+.FreetextGroup:hover,
+.FreetextGroup--active {
+  outline: 1px dashed #bbb;
+}
+
+/* Don't intefere with drawing or dragging */
+.Page.is-multistroke-drawing .FreetextGroup {
+  pointer-events: none;
+}
+
+.FreetextTooltip-container {
+  position: absolute;
+  cursor: default;
+  bottom: calc(100% + 2px);
+}
+
+.FreetextTooltip {
+  position: relative;
+  left: -2px;
+}
+
+.Freetext-title {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.Freetext-content {
+  box-sizing: content-box;
+  cursor: text;
+}
+
+.Freetext-entry {
+  padding: 10px;
+  display: inline-block;
+}
+
+.Freetext-textarea:focus {
+  border: 1px solid #38a7e8;
+}
+
+.Freetext-textarea,
+.Freetext-textarea[disabled] {
+  -webkit-opacity: 1;
+  box-sizing: content-box;
+  cursor: text;
+  border: 1px solid transparent;
+  font-family: Lato, Helvetica, Arial;
+  white-space: pre;
+  overflow: hidden;
+  resize: none;
+  padding: 0 2px 0;
+  word-wrap: break-word;
+}
+
+.TextSizeButton {
+  outline: none;
+  color: #556572;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.TextSizeButton.selected {
+  background-color: #556572;
+  color: #ffffff;
+}
+
+.TextSizeButton:hover {
+  border-color: #dbdbdb;
+}
+
+.TextSizeButton:focus {
+  border-color: #38a7e8;
+}
+
+.TextSizeButton-outer {
+  display: flex;
+  width: 18px;
+  height: 19px;
+  padding: 2px 0 2px 0;
+  align-items: center;
+  justify-content: center;
+}
+</style><style>.Draw {
+  position: absolute;
+  background-color: transparent;
+  left: 0;
+  top: 0;
+}
+
+.Draw--freetext .Annotation,
+.Draw--point .Annotation,
+.Draw--ink .Annotation,
+.Draw--area .Annotation {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.Draw--freetext .textLayer,
+.Draw--point .textLayer,
+.Draw--ink .textLayer,
+.Draw--area .textLayer {
+  pointer-events: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.Draw--area .TextLayer-container,
+.Draw--area .PageAnnotations {
+  cursor: crosshair;
+}
+
+.Draw--freetext .TextLayer-container {
+  cursor: text;
+}
+
+.Draw--point .TextLayer-container {
+  cursor: none;
+}
+
+.Draw--ink .TextLayer-container,
+.Draw--is-drawing.Draw--ink .Draw-svg {
+  cursor: url(/images/draw-cursor.svg), auto;
+}
+
+/*
+  When in the act of drawing, be on top of everything.
+  Possible alternative to z-index: use React portal.
+*/
+
+.Draw--ink.Draw--is-drawing .Draw-svg {
+  z-index: 2;
+}
+
+.Draw.Draw--is-drawing.Draw--highlight {
+  mix-blend-mode: multiply;
+}
+
+.Draw--strikeout .textLayer > span::selection,
+.Draw--highlight .textLayer > span::selection {
+  background-color: transparent;
+}
+
+/* This has to be declared separately ¯\_(ツ)_/¯ */
+.Draw--strikeout .textLayer > span::-moz-selection,
+.Draw--highlight .textLayer > span::-moz-selection {
+  background-color: transparent;
+}
+
+.Draw--not-drawing .Draw--highlight-group,
+.Draw--not-drawing .Draw--strikeout-group {
+  display: none;
+}
+</style><style>.CommentIndicator {
+  position: absolute;
+  z-index: 1;
+  transform: translate(50%, 70%);
+  width: 200px;
+  color: #484848;
+  font-weight: 300;
+}
+
+.ArrowIconContainer {
+  float: left;
+  margin-right: 10px;
+}
+</style><script charset="utf-8" src="./9.dde6e2c2055bd6d1d171.bundle.js"></script><script charset="utf-8" src="./26.6b2870ab01cf25d7bed9.bundle.js"></script></head>
+
+<body>
+  <div id="App"><div hidden="" aria-hidden="true">Locale: en</div><h1 class="screenreader-only">DocViewer</h1><nav class="ViewerControls"><div class="ViewerControls-primary"><div class="ViewerControls--title"></div><div class="ViewerControls--page-controls"><span class="ViewerControls--page-number" style="display: flex; align-items: center;">Page <div><button class="AnnotationControlButton" aria-label="Previous Page" title="Previous Page"><div class="AnnotationControlButton-outer"><div class="AnnotationControlButton-inner"><svg viewBox="0 0 2000 2000" height="16" width="16"><path d="M1352.005.012l176.13 176.13L744.27 960.131l783.864 783.74L1352.005 1920 391.887 960.13z" fill="#F5F5F5" fill-rule="evenodd"></path></svg></div></div></button><input aria-label="Current Page Number" class="ViewerControls--current-page" type="number" min="1" max="18" step="1" value="11"><button class="AnnotationControlButton" aria-label="Next Page" title="Next Page"><div class="AnnotationControlButton-outer"><div class="AnnotationControlButton-inner"><svg viewBox="0 0 2000 2000" height="16" width="16"><path d="M568.13.012L392 176.142l783.864 783.989L392 1743.87 568.13 1920l960.118-959.87z" fill="#F5F5F5" fill-rule="evenodd"></path></svg></div></div></button></div> of 18</span><svg viewBox="0 0 2 26" style="margin-left: 16px; margin-right: 10px; width: 2px; height: 26px; color: rgb(171, 179, 186);"><line stroke="currentColor" stroke-dasharray="2, 1" stroke-width="1" x1="1" y1="0" x2="1" y2="26"></line></svg></div><nav class="DocumentControls" style="margin-right: 12px;"><div style="display: inline-flex; align-items: center; user-select: none;"><button class="AnnotationControlButton" aria-label="Rotate Page Clockwise By 90 Degrees" title="Rotate Page Clockwise By 90 Degrees"><div class="AnnotationControlButton-outer"><div class="AnnotationControlButton-inner"><svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M9 0v2c3.859 0 7 3.14 7 7s-3.141 7-7 7-7-3.14-7-7c0-1.847.735-3.586 2-4.882V6.5h2V1H.5v2h1.791A8.992 8.992 0 0 0 0 9c0 4.962 4.037 9 9 9s9-4.038 9-9-4.037-9-9-9" fill="currentColor" fill-rule="evenodd"></path></svg></div></div></button><svg viewBox="0 0 2 26" style="margin-left: 8px; margin-right: 4px; width: 2px; height: 26px; color: rgb(171, 179, 186);"><line stroke="currentColor" stroke-dasharray="2, 1" stroke-width="1" x1="1" y1="0" x2="1" y2="26"></line></svg><button class="AnnotationControlButton" aria-label="Zoom Out" title="Zoom Out" aria-disabled="true" disabled=""><div class="AnnotationControlButton-outer"><div class="AnnotationControlButton-inner"><svg width="14" height="2" viewBox="0 0 14 2"><path d="M0 0h14v2H0z" fill="#F5F5F5" fill-rule="evenodd"></path></svg></div></div></button><span aria-hidden="true" style="text-transform: uppercase; font-size: 0.75rem; color: rgb(238, 238, 239); margin-left: 4px; margin-right: 4px;">Zoom</span><button class="AnnotationControlButton" aria-label="Zoom In" title="Zoom In" aria-disabled="false"><div class="AnnotationControlButton-outer"><div class="AnnotationControlButton-inner"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M8 6V0H6v6H0v2h6v6h2V8h6V6H8z" fill="#F5F5F5"></path></svg></div></div></button></div><svg viewBox="0 0 2 26" style="margin-left: 8px; margin-right: 4px; width: 2px; height: 26px; color: rgb(171, 179, 186);"><line stroke="currentColor" stroke-dasharray="2, 1" stroke-width="1" x1="1" y1="0" x2="1" y2="26"></line></svg><div class="ViewerControls--page-controls"><button aria-label="Exit Full Screen" class="AnnotationControlButton full-screen-button" title="Exit Full Screen"><div class="AnnotationControlButton-outer"><div class="AnnotationControlButton-inner"><svg width="17px" height="17px" viewBox="0 0 17 17"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-698.000000, -930.000000)" fill="#2B3B46"><path d="M713.690612,930 L715.000371,931.309759 L710.33285,935.977279 L713.335847,935.977279 L713.335847,937.830763 L707.169607,937.830763 L707.169607,931.663597 L709.023092,931.663597 L709.023092,934.66752 L713.690612,930 Z M699.663597,939.170163 L705.829837,939.170163 L705.829837,945.335476 L703.978205,945.335476 L703.978205,942.33248 L699.309759,947 L698,945.690241 L702.668447,941.022721 L699.663597,941.022721 L699.663597,939.170163 Z" fill="#F5F5F5"></path></g></g></svg></div></div></button><svg viewBox="0 0 2 26" style="margin-left: 8px; margin-right: 4px; width: 2px; height: 26px; color: rgb(171, 179, 186);"><line stroke="currentColor" stroke-dasharray="2, 1" stroke-width="1" x1="1" y1="0" x2="1" y2="26"></line></svg></div></nav><nav class="AnnotationControls" style="margin-right: 12px;"></nav></div></nav><div class="Pages"><h2 class="screenreader-only">Pages</h2><div class="Page-container" style="width: 588px;"><div class="Page PageComponent" id="page-0" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 18.7785px; top: 318.753px; font-size: 4.9px; font-family: sans-serif; transform: scaleX(0.973564);">© 2021 Trilogy Education Services, a 2U, Inc. brand.  All Rights Reserved.</span><span class="textLayer--absolute" style="left: 338.076px; top: 266.619px; font-size: 16.3333px; font-family: sans-serif; transform: scaleX(0.792535);">FinTech Online Boot Camp</span><span class="textLayer--absolute" style="left: 197.521px; top: 91.6965px; font-size: 44.9167px; font-family: sans-serif; transform: scaleX(0.749625);">Syllabus</span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-1" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 28.6091px; top: 17.0118px; font-size: 14.7px; font-family: sans-serif; transform: scaleX(0.991954);">FinTech Online Boot Camp Syllabus</span><span class="textLayer--absolute" style="left: 567.608px; top: 318.928px; font-size: 4.9px; font-family: sans-serif;">2</span><span class="textLayer--absolute" style="left: 34.7533px; top: 56.6286px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.788364);">Section 1: Course Overview</span><span class="textLayer--absolute" style="left: 34.7533px; top: 78.0895px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.990686);">Course Outcomes</span><span class="textLayer--absolute" style="left: 34.7533px; top: 94.2595px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00662);">Curriculum</span><span class="textLayer--absolute" style="left: 256.448px; top: 60.5475px; font-size: 8.16667px; font-family: sans-serif;">3</span><span class="textLayer--absolute" style="left: 256.448px; top: 76.7175px; font-size: 8.16667px; font-family: sans-serif;">4</span><span class="textLayer--absolute" style="left: 256.448px; top: 92.8875px; font-size: 8.16667px; font-family: sans-serif;">5</span><span class="textLayer--absolute" style="left: 34.7533px; top: 124.909px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.814658);">Section 2: Course Structure</span><span class="textLayer--absolute" style="left: 34.7533px; top: 146.37px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.978142);">Learning Experience</span><span class="textLayer--absolute" style="left: 34.7533px; top: 162.54px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00182);">Virtual Classes</span><span class="textLayer--absolute" style="left: 34.7533px; top: 178.71px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.997458);">Learning Technology</span><span class="textLayer--absolute" style="left: 34.7533px; top: 194.88px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00507);">Minimum Technology Requirements</span><span class="textLayer--absolute" style="left: 34.7533px; top: 211.05px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.975832);">Course Feedback</span><span class="textLayer--absolute" style="left: 256.448px; top: 127.456px; font-size: 8.16667px; font-family: sans-serif;">6</span><span class="textLayer--absolute" style="left: 256.448px; top: 143.626px; font-size: 8.16667px; font-family: sans-serif;">6</span><span class="textLayer--absolute" style="left: 256.448px; top: 159.796px; font-size: 8.16667px; font-family: sans-serif;">7</span><span class="textLayer--absolute" style="left: 256.448px; top: 175.966px; font-size: 8.16667px; font-family: sans-serif;">8</span><span class="textLayer--absolute" style="left: 256.448px; top: 192.136px; font-size: 8.16667px; font-family: sans-serif;">9</span><span class="textLayer--absolute" style="left: 256.448px; top: 208.306px; font-size: 8.16667px; font-family: sans-serif;">9</span><span class="textLayer--absolute" style="left: 34.7533px; top: 241.821px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.800167);">Section 3: Course Assessment &amp; Requirements</span><span class="textLayer--absolute" style="left: 34.7533px; top: 263.282px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.982054);">Grading Policy</span><span class="textLayer--absolute" style="left: 34.7533px; top: 279.452px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00431);">Assessment Criteria</span><span class="textLayer--absolute" style="left: 34.7533px; top: 295.622px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.9873);">Graduation Requirements</span><span class="textLayer--absolute" style="left: 256.448px; top: 244.368px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.03114);">10</span><span class="textLayer--absolute" style="left: 256.448px; top: 260.538px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00954);">10</span><span class="textLayer--absolute" style="left: 256.448px; top: 276.708px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.08121);">11</span><span class="textLayer--absolute" style="left: 256.448px; top: 292.878px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00954);">12</span><span class="textLayer--absolute" style="left: 311.066px; top: 56.582px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.814704);">Section 4: Support</span><span class="textLayer--absolute" style="left: 311.066px; top: 78.0429px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00313);">Your Support Community</span><span class="textLayer--absolute" style="left: 311.066px; top: 94.2129px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00865);">Tips for Success</span><span class="textLayer--absolute" style="left: 535.46px; top: 60.5009px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.03114);">13</span><span class="textLayer--absolute" style="left: 535.46px; top: 76.6709px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00954);">13</span><span class="textLayer--absolute" style="left: 535.46px; top: 92.8409px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00954);">14</span><span class="textLayer--absolute" style="left: 311.066px; top: 124.863px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.811489);">Section 5: Expectations &amp; Policies</span><span class="textLayer--absolute" style="left: 311.066px; top: 146.324px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00693);">Time Expectations</span><span class="textLayer--absolute" style="left: 311.066px; top: 162.494px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00351);">Late Assignment Policy</span><span class="textLayer--absolute" style="left: 311.066px; top: 178.664px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00049);">Prerequisites</span><span class="textLayer--absolute" style="left: 311.066px; top: 194.833px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00189);">Communication Guidelines</span><span class="textLayer--absolute" style="left: 311.066px; top: 211.003px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00452);">Code of Conduct / Academic Honesty</span><span class="textLayer--absolute" style="left: 311.066px; top: 227.173px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.985788);">Drop Policy</span><span class="textLayer--absolute" style="left: 311.066px; top: 243.343px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00445);">Tutoring Policy</span><span class="textLayer--absolute" style="left: 311.066px; top: 259.513px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.982226);">Career Team Policy</span><span class="textLayer--absolute" style="left: 311.066px; top: 275.683px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00006);">Accessibility &amp; Privacy Policies</span><span class="textLayer--absolute" style="left: 428.666px; top: 275.683px; font-size: 8.16667px; font-family: sans-serif;">`</span><span class="textLayer--absolute" style="left: 535.46px; top: 127.41px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.03114);">15</span><span class="textLayer--absolute" style="left: 535.46px; top: 143.58px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00954);">15</span><span class="textLayer--absolute" style="left: 535.46px; top: 159.749px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00954);">15</span><span class="textLayer--absolute" style="left: 535.46px; top: 175.919px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00954);">15</span><span class="textLayer--absolute" style="left: 535.46px; top: 192.089px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00954);">16</span><span class="textLayer--absolute" style="left: 535.46px; top: 208.259px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00954);">17</span><span class="textLayer--absolute" style="left: 535.46px; top: 224.429px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00954);">17</span><span class="textLayer--absolute" style="left: 535.46px; top: 240.599px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00954);">17</span><span class="textLayer--absolute" style="left: 535.46px; top: 256.769px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00954);">17</span><span class="textLayer--absolute" style="left: 535.46px; top: 272.939px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00954);">18</span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"><div class="annotationLayer"><section data-annotation-id="78R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -30.8572px -66.343px; left: 30.8572px; top: 66.343px; width: 317.058px; height: 24.686px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section><section data-annotation-id="79R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -31.9483px -90.39px; left: 31.9483px; top: 90.39px; width: 314.028px; height: 20.26px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section><section data-annotation-id="80R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -30.3898px -111.429px; left: 30.3898px; top: 111.429px; width: 310.132px; height: 30.39px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section><section data-annotation-id="81R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -31.169px -149.611px; left: 31.169px; top: 149.611px; width: 317.924px; height: 42.079px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section><section data-annotation-id="82R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -30.3898px -192.469px; left: 30.3898px; top: 192.469px; width: 317.924px; height: 20.26px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section><section data-annotation-id="83R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -31.9483px -212.729px; left: 31.9483px; top: 212.729px; width: 317.924px; height: 21.818px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section><section data-annotation-id="84R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -31.9483px -234.547px; left: 31.9483px; top: 234.547px; width: 322.6px; height: 43.637px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section><section data-annotation-id="85R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -30.3898px -291.43px; left: 30.3898px; top: 291.43px; width: 318.703px; height: 45.1955px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section><section data-annotation-id="86R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -28.8314px -336.625px; left: 28.8314px; top: 336.625px; width: 323.379px; height: 19.4807px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section><section data-annotation-id="87R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -30.3898px -356.106px; left: 30.3898px; top: 356.106px; width: 318.703px; height: 24.9353px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section><section data-annotation-id="88R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -370.911px -67.013px; left: 370.911px; top: 67.013px; width: 319.483px; height: 43.637px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section><section data-annotation-id="89R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -372.47px -110.65px; left: 372.47px; top: 110.65px; width: 321.041px; height: 30.39px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section><section data-annotation-id="90R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -370.132px -151.17px; left: 370.132px; top: 151.17px; width: 322.6px; height: 83.377px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section><section data-annotation-id="91R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -370.132px -234.547px; left: 370.132px; top: 234.547px; width: 319.483px; height: 17.143px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section><section data-annotation-id="92R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -370.911px -252.469px; left: 370.911px; top: 252.469px; width: 319.483px; height: 77.9227px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section><section data-annotation-id="93R" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -371.691px -330.392px; left: 371.691px; top: 330.392px; width: 316.365px; height: 36.6236px;"><a href="https://canvadocs-pdx-prod.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjMxOTIxMTc5NjY3LCJkIjoiSVpmRFVGTWp2SEl4N29FSm12SUhxSDVjNzdTX3RmIiwiZSI6MTYzMTk1NzE3OSwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYzMTkyMTE3OSwiZXhwIjoxNjMxOTU3MTc4fQ.hMXaTVncTFiv_VkvVzBs7fP5WudSC8ZwrpEqUjLhvwz4TnX0ecJRqfX1sJuLkvwJqUTVD9Z8uhWslSZ0wppSSg/view?theme=dark#" class="internalLink" target="_blank"></a></section></div></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-2" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 48.6045px; top: 30.5982px; font-size: 26.1333px; font-family: sans-serif; transform: scaleX(0.788464);">Section 1: Course Overview</span><span class="textLayer--absolute" style="left: 567.608px; top: 318.928px; font-size: 4.9px; font-family: sans-serif;">3</span><span class="textLayer--absolute" style="left: 48.6045px; top: 77.3144px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.994476);">Welcome to FinTech Online! This is a rigorous and fast-paced boot camp </span><span class="textLayer--absolute" style="left: 48.6045px; top: 90.8384px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00268);">that focuses on the practical technical skills needed to use data analytics, </span><span class="textLayer--absolute" style="left: 48.6045px; top: 104.362px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.9977);">machine learning, and blockchain technologies in the FinTech industry. </span><span class="textLayer--absolute" style="left: 48.6045px; top: 117.886px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.9972);">Throughout the course, you will gain proficiency in numerous marketable </span><span class="textLayer--absolute" style="left: 48.6045px; top: 131.41px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.970184);">technologies and skills, including Python, Pandas, SQL, AWS, Ethereum, </span><span class="textLayer--absolute" style="left: 48.6045px; top: 144.934px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.996566);">and more. Additionally, you'll leave with an impressive professional </span><span class="textLayer--absolute" style="left: 48.6045px; top: 158.458px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00578);">portfolio and the confidence to succeed in a high-growth profession. </span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-3" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 28.6091px; top: 17.0118px; font-size: 14.7px; font-family: sans-serif; transform: scaleX(0.995088);">Course Outcomes</span><span class="textLayer--absolute" style="left: 29.4px; top: 49.2969px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.9835);">By the time you graduate, you will be able to:</span><span class="textLayer--absolute" style="left: 567.608px; top: 318.928px; font-size: 4.9px; font-family: sans-serif;">4</span><span class="textLayer--absolute" style="left: 39.1805px; top: 72.3819px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.9913px; top: 72.1985px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00909);">Build communication skills and demonstrate foundational knowledge required during technical interviews.</span><span class="textLayer--absolute" style="left: 39.1805px; top: 90.1444px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.9913px; top: 89.961px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00499);">Demonstrate strong teamwork and project management skills as a collaborator and independent contributor during the </span><span class="textLayer--absolute" style="left: 49.9913px; top: 100.986px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00852);">development cycle of complex projects.</span><span class="textLayer--absolute" style="left: 39.1805px; top: 118.932px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.9913px; top: 118.748px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.999162);">Apply modern financial technologies within the context of working at an investment bank, insurance agency, or any </span><span class="textLayer--absolute" style="left: 49.9913px; top: 129.773px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00135);">player in the financial industry.</span><span class="textLayer--absolute" style="left: 39.1805px; top: 147.719px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.9913px; top: 147.536px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00769);">Employ financial and statistical analysis techniques to model, predict, and forecast trends and model financial portfolios.</span><span class="textLayer--absolute" style="left: 39.1805px; top: 165.482px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.9913px; top: 165.298px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.994777);">Make API requests to pull financial data, and use a variety of Python packages to run financial analysis on large datasets.</span><span class="textLayer--absolute" style="left: 39.1805px; top: 183.244px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.9913px; top: 183.061px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00154);">Conduct time series analysis to develop financial forecasts, and analyze forecasts for accuracy.</span><span class="textLayer--absolute" style="left: 39.1805px; top: 201.007px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.9913px; top: 200.823px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.999931);">Work with databases on the AWS cloud in the service of financial applications.</span><span class="textLayer--absolute" style="left: 39.1805px; top: 218.769px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.9913px; top: 218.586px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.0028);">Use a variety of machine learning algorithms and understand their proper application within the field of finance.</span><span class="textLayer--absolute" style="left: 39.1805px; top: 236.532px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.9913px; top: 236.348px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00689);">Design and implement smart contracts with the Solidity programming language.</span><span class="textLayer--absolute" style="left: 39.1805px; top: 254.294px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.9913px; top: 254.111px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.997252);">Build an Ethereum blockchain and understand how transactions are validated on a distributed ledger.</span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-4" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 28.6091px; top: 17.0118px; font-size: 14.7px; font-family: sans-serif; transform: scaleX(1.01821);">Curriculum</span><span class="textLayer--absolute" style="left: 29.4px; top: 49.2969px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.995661);">The boot camp is divided into three phases that are organized into weekly modules: </span><span class="textLayer--absolute" style="left: 29.4px; top: 60.9344px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.997095);">Foundation, Technical, and Performance. Culminating each section are group projects that each run for two weeks.</span><span class="textLayer--absolute" style="left: 567.608px; top: 318.928px; font-size: 4.9px; font-family: sans-serif;">5</span><span class="textLayer--absolute" style="left: 48.2195px; top: 89.0981px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02396);">Unit</span><span class="textLayer--absolute" style="left: 71.132px; top: 97.6467px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00653);">Section 1: Financial </span><span class="textLayer--absolute" style="left: 71.132px; top: 105.487px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02319);">Programming</span><span class="textLayer--absolute" style="left: 71.132px; top: 113.327px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02617);">(Modules 1–7)</span><span class="textLayer--absolute" style="left: 155.255px; top: 105.487px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02326);">Project 1</span><span class="textLayer--absolute" style="left: 155.255px; top: 113.327px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02617);">(Modules 8–9)</span><span class="textLayer--absolute" style="left: 239.378px; top: 89.8067px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00932);">Section 2: Machine </span><span class="textLayer--absolute" style="left: 239.378px; top: 97.6467px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02007);">Learning Applications in </span><span class="textLayer--absolute" style="left: 239.378px; top: 105.487px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.992465);">Finance</span><span class="textLayer--absolute" style="left: 239.378px; top: 113.327px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02366);">(Modules 10–15)</span><span class="textLayer--absolute" style="left: 323.501px; top: 105.487px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02326);">Project 2</span><span class="textLayer--absolute" style="left: 323.501px; top: 113.327px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01887);">(Modules 16–17) </span><span class="textLayer--absolute" style="left: 407.624px; top: 97.6467px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01273);">Section 3: Blockchain </span><span class="textLayer--absolute" style="left: 407.624px; top: 105.487px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00968);">and Cryptocurrency</span><span class="textLayer--absolute" style="left: 407.624px; top: 113.327px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01887);">(Modules 18–22) </span><span class="textLayer--absolute" style="left: 491.747px; top: 105.487px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01478);">Project 3: Final Project</span><span class="textLayer--absolute" style="left: 491.747px; top: 113.327px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01887);">(Modules 23–24) </span><span class="textLayer--absolute" style="left: 26.5098px; top: 132.804px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02853);">Description</span><span class="textLayer--absolute" style="left: 71.132px; top: 132.804px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.0079);">Build a solid foundation </span><span class="textLayer--absolute" style="left: 71.132px; top: 140.644px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01274);">in fundamental concepts </span><span class="textLayer--absolute" style="left: 71.132px; top: 148.484px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00405);">of financial analysis and </span><span class="textLayer--absolute" style="left: 71.132px; top: 156.324px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00794);">programming using </span><span class="textLayer--absolute" style="left: 71.132px; top: 164.164px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.998071);">real-time data.</span><span class="textLayer--absolute" style="left: 155.255px; top: 132.804px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.983161);">Apply your newly </span><span class="textLayer--absolute" style="left: 155.255px; top: 140.644px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00409);">acquired skills to solve </span><span class="textLayer--absolute" style="left: 155.255px; top: 148.484px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.994274);">a real-world problem </span><span class="textLayer--absolute" style="left: 155.255px; top: 156.324px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.996205);">using data cleanup </span><span class="textLayer--absolute" style="left: 155.255px; top: 164.164px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.992642);">and analysis.</span><span class="textLayer--absolute" style="left: 239.378px; top: 132.804px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.982314);">Learn the necessary </span><span class="textLayer--absolute" style="left: 239.378px; top: 140.644px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00494);">skills to use machine </span><span class="textLayer--absolute" style="left: 239.378px; top: 148.484px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00116);">learning techniques to </span><span class="textLayer--absolute" style="left: 239.378px; top: 156.324px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01548);">predict future outcomes. </span><span class="textLayer--absolute" style="left: 323.501px; top: 132.804px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.992913);">Bring together new </span><span class="textLayer--absolute" style="left: 323.501px; top: 140.644px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00302);">technologies and </span><span class="textLayer--absolute" style="left: 323.501px; top: 148.484px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.0026);">concepts to develop </span><span class="textLayer--absolute" style="left: 323.501px; top: 156.324px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.992197);">a machine learning </span><span class="textLayer--absolute" style="left: 323.501px; top: 164.164px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.996864);">model to solve a </span><span class="textLayer--absolute" style="left: 323.501px; top: 172.004px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01595);">particular problem.</span><span class="textLayer--absolute" style="left: 407.624px; top: 132.804px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.999029);">Learn cutting-edge tools </span><span class="textLayer--absolute" style="left: 407.624px; top: 140.644px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02007);">to optimize applications </span><span class="textLayer--absolute" style="left: 407.624px; top: 148.484px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.998681);">for speed and efficiency </span><span class="textLayer--absolute" style="left: 407.624px; top: 156.324px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.997796);">and begin your transition </span><span class="textLayer--absolute" style="left: 407.624px; top: 164.164px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.981851);">into a new career as a </span><span class="textLayer--absolute" style="left: 407.624px; top: 172.004px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.994043);">blockchain developer. </span><span class="textLayer--absolute" style="left: 491.747px; top: 132.804px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.982668);">Create a capstone </span><span class="textLayer--absolute" style="left: 491.747px; top: 140.644px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00797);">project that uses </span><span class="textLayer--absolute" style="left: 491.747px; top: 148.484px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01043);">blockchain technologies </span><span class="textLayer--absolute" style="left: 491.747px; top: 156.324px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.995064);">to solve a problem in the </span><span class="textLayer--absolute" style="left: 491.747px; top: 164.164px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01604);">fintech domain.</span><span class="textLayer--absolute" style="left: 27.2876px; top: 192.189px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.0063);">What You’ll </span><span class="textLayer--absolute" style="left: 43.5092px; top: 200.029px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.994012);">Learn</span><span class="textLayer--absolute" style="left: 73.3147px; top: 192.336px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 83.137px; top: 192.189px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.997281);">Fintech landscape</span><span class="textLayer--absolute" style="left: 73.3147px; top: 201.809px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 83.137px; top: 201.663px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.998493);">Python</span><span class="textLayer--absolute" style="left: 73.3147px; top: 211.283px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 83.137px; top: 211.136px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.98529);">Pandas</span><span class="textLayer--absolute" style="left: 73.3147px; top: 220.756px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 83.137px; top: 220.609px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.0222);">Statistical modeling</span><span class="textLayer--absolute" style="left: 73.3147px; top: 230.229px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 83.137px; top: 230.083px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.979753);">APIs</span><span class="textLayer--absolute" style="left: 73.3147px; top: 239.703px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 83.137px; top: 239.556px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.909021);">SQL</span><span class="textLayer--absolute" style="left: 73.3147px; top: 249.176px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 83.137px; top: 249.029px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.999484);">Python libraries</span><span class="textLayer--absolute" style="left: 73.3147px; top: 258.649px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 83.137px; top: 258.503px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00135);">Time series analysis</span><span class="textLayer--absolute" style="left: 73.3147px; top: 268.123px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 83.137px; top: 267.976px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.995234);">Financial ratios and </span><span class="textLayer--absolute" style="left: 83.137px; top: 275.816px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01922);">modeling</span><span class="textLayer--absolute" style="left: 157.438px; top: 192.336px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 167.26px; top: 192.189px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01857);">Team collaboration</span><span class="textLayer--absolute" style="left: 157.438px; top: 201.809px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 167.26px; top: 201.663px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.999718);">Agile development</span><span class="textLayer--absolute" style="left: 157.438px; top: 211.283px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 167.26px; top: 211.136px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00106);">Project </span><span class="textLayer--absolute" style="left: 167.26px; top: 218.976px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01764);">demonstration </span><span class="textLayer--absolute" style="left: 167.26px; top: 226.816px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01419);">and storytelling</span><span class="textLayer--absolute" style="left: 241.561px; top: 192.336px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 251.383px; top: 192.189px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.0238);">Algorithmic trading</span><span class="textLayer--absolute" style="left: 241.561px; top: 201.809px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 251.383px; top: 201.663px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00141);">Random forests </span><span class="textLayer--absolute" style="left: 241.561px; top: 211.283px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 251.383px; top: 211.136px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.988955);">k-Nearest neighbors </span><span class="textLayer--absolute" style="left: 241.561px; top: 220.756px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 251.383px; top: 220.609px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.999295);">Support vector </span><span class="textLayer--absolute" style="left: 251.383px; top: 228.449px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00455);">machines </span><span class="textLayer--absolute" style="left: 241.561px; top: 238.069px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 251.383px; top: 237.923px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.993271);">Scikit-learn</span><span class="textLayer--absolute" style="left: 241.561px; top: 247.543px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 251.383px; top: 247.396px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.991635);">Linear regression</span><span class="textLayer--absolute" style="left: 241.561px; top: 257.016px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 251.383px; top: 256.869px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.0121);">Logistic regression</span><span class="textLayer--absolute" style="left: 241.561px; top: 266.489px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 251.383px; top: 266.343px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00348);">k-Means clustering</span><span class="textLayer--absolute" style="left: 241.561px; top: 275.963px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 251.383px; top: 275.816px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.996069);">Forecasting </span><span class="textLayer--absolute" style="left: 241.561px; top: 285.436px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 251.383px; top: 285.289px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.980272);">Amazon Web </span><span class="textLayer--absolute" style="left: 251.383px; top: 293.129px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.981341);">Services</span><span class="textLayer--absolute" style="left: 325.684px; top: 192.336px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 335.506px; top: 192.189px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01857);">Team collaboration</span><span class="textLayer--absolute" style="left: 325.684px; top: 201.809px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 335.506px; top: 201.663px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.999718);">Agile development</span><span class="textLayer--absolute" style="left: 325.684px; top: 211.283px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 335.506px; top: 211.136px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00106);">Project </span><span class="textLayer--absolute" style="left: 335.506px; top: 218.976px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01764);">demonstration </span><span class="textLayer--absolute" style="left: 335.506px; top: 226.816px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01419);">and storytelling</span><span class="textLayer--absolute" style="left: 409.807px; top: 192.336px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 419.629px; top: 192.189px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.982639);">Ethereum</span><span class="textLayer--absolute" style="left: 409.807px; top: 201.809px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 419.629px; top: 201.663px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02067);">Smart contracts</span><span class="textLayer--absolute" style="left: 409.807px; top: 211.283px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 419.629px; top: 211.136px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.984074);">Consensus </span><span class="textLayer--absolute" style="left: 419.629px; top: 218.976px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.03309);">algorithms</span><span class="textLayer--absolute" style="left: 409.807px; top: 228.596px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 419.629px; top: 228.449px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01283);">Transactions</span><span class="textLayer--absolute" style="left: 409.807px; top: 238.069px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 419.629px; top: 237.923px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00901);">Solidity</span><span class="textLayer--absolute" style="left: 409.807px; top: 247.543px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 419.629px; top: 247.396px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.993756);">Cryptocurrency</span><span class="textLayer--absolute" style="left: 409.807px; top: 257.016px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 419.629px; top: 256.869px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00302);">Distributed ledger</span><span class="textLayer--absolute" style="left: 409.807px; top: 266.489px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 419.629px; top: 266.343px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01083);">Truffle suite</span><span class="textLayer--absolute" style="left: 409.807px; top: 275.963px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 419.629px; top: 275.816px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02806);">Validations</span><span class="textLayer--absolute" style="left: 493.93px; top: 192.336px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 503.752px; top: 192.189px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.982024);">Dreaming up </span><span class="textLayer--absolute" style="left: 503.752px; top: 200.029px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02711);">something fantastic </span><span class="textLayer--absolute" style="left: 493.93px; top: 209.649px; font-size: 6.53333px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 503.752px; top: 209.503px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.992201);">Understanding the </span><span class="textLayer--absolute" style="left: 503.752px; top: 217.343px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01156);">bounds of </span><span class="textLayer--absolute" style="left: 503.752px; top: 225.183px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.985257);">reasonable and </span><span class="textLayer--absolute" style="left: 503.752px; top: 233.023px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.990416);">achievable</span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-5" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 48.6045px; top: 32.1205px; font-size: 19.6px; font-family: sans-serif; transform: scaleX(0.814658);">Section 2: Course Structure</span><span class="textLayer--absolute" style="left: 567.608px; top: 318.928px; font-size: 4.9px; font-family: sans-serif;">6</span><span class="textLayer--absolute" style="left: 48.6045px; top: 90.8384px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00086);">Each week of your course is structured around a specific topic and set of skills. </span><span class="textLayer--absolute" style="left: 48.6045px; top: 104.362px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.991923);">The course is designed to help you master those skills. Each week you will:</span><span class="textLayer--absolute" style="left: 60.4349px; top: 149.353px; font-size: 8.98333px; font-family: sans-serif; transform: scaleX(1.00066);">Complete Online Lessons</span><span class="textLayer--absolute" style="left: 222.559px; top: 149.353px; font-size: 8.98333px; font-family: sans-serif; transform: scaleX(1.01417);">Attend Virtual Classes &amp; Office Hours</span><span class="textLayer--absolute" style="left: 422.866px; top: 149.353px; font-size: 8.98333px; font-family: sans-serif; transform: scaleX(1.0012);">Submit Weekly Challenges</span><span class="textLayer--absolute" style="left: 60.4349px; top: 178.143px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.991952);">Start each week by diving into the </span><span class="textLayer--absolute" style="left: 60.4349px; top: 189.413px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.998148);">online lessons on </span><span class="textLayer--absolute" style="left: 125.703px; top: 189.413px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00823);">Bootcamp Spot</span><span class="textLayer--absolute" style="left: 181.978px; top: 189.413px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.918572);">. </span><span class="textLayer--absolute" style="left: 60.4349px; top: 200.683px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.994204);">The lessons are designed to introduce </span><span class="textLayer--absolute" style="left: 60.4349px; top: 211.953px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.997298);">you to the week’s skills within a </span><span class="textLayer--absolute" style="left: 60.4349px; top: 223.223px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.996914);">real-world context through videos, </span><span class="textLayer--absolute" style="left: 60.4349px; top: 234.493px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.98855);">text-based readings, skill-based </span><span class="textLayer--absolute" style="left: 60.4349px; top: 245.763px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00686);">activities, and interactive activities. </span><span class="textLayer--absolute" style="left: 222.559px; top: 178.143px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.0067);">You will have two instructor-led virtual classes </span><span class="textLayer--absolute" style="left: 222.559px; top: 189.413px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.988135);">each week through Zoom. These classes are </span><span class="textLayer--absolute" style="left: 222.559px; top: 200.683px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.992348);">designed to build on the online lessons, so be </span><span class="textLayer--absolute" style="left: 222.559px; top: 211.953px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.989786);">sure that you have made good progress on the </span><span class="textLayer--absolute" style="left: 222.559px; top: 223.223px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00629);">lessons to get the most out of these classes. In </span><span class="textLayer--absolute" style="left: 222.559px; top: 234.493px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00351);">addition, you’ll have opportunities to attend </span><span class="textLayer--absolute" style="left: 222.559px; top: 245.763px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00674);">office hours led by your instructor and/or TA.</span><span class="textLayer--absolute" style="left: 422.866px; top: 178.143px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.998828);">Demonstrate the skills you </span><span class="textLayer--absolute" style="left: 422.866px; top: 189.413px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.986539);">learned this week by </span><span class="textLayer--absolute" style="left: 422.866px; top: 200.683px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00165);">submitting the Challenge </span><span class="textLayer--absolute" style="left: 422.866px; top: 211.953px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.989146);">assignment. Challenges are </span><span class="textLayer--absolute" style="left: 422.866px; top: 223.223px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00809);">graded assignments for which </span><span class="textLayer--absolute" style="left: 422.866px; top: 234.493px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00218);">you will get feedback.</span><span class="textLayer--absolute" style="left: 56.6566px; top: 69.3872px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.997183);">Learning Experience</span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"><div class="annotationLayer"><section data-annotation-id="annot_p5_1" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -153.922px -231.612px; left: 153.922px; top: 231.612px; width: 68.9087px; height: 12px;"><a title="http://courses.bootcampspot.com/" href="http://courses.bootcampspot.com/" target="_blank" rel="noopener noreferrer nofollow"></a></section></div></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-6" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 28.6091px; top: 17.0382px; font-size: 15.5167px; font-family: sans-serif; transform: scaleX(1.01376);">Virtual Classes</span><span class="textLayer--absolute" style="left: 567.608px; top: 318.928px; font-size: 4.9px; font-family: sans-serif;">7</span><span class="textLayer--absolute" style="left: 29.4px; top: 49.2969px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.998565);">During virtual classes, your instructional team will lead demonstrations, as well as guide you through independent </span><span class="textLayer--absolute" style="left: 29.4px; top: 62.7719px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00417);">activities and interactive group work in breakout rooms. </span><span class="textLayer--absolute" style="left: 29.4px; top: 84.2094px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.993178);">The work you do in your virtual classes builds on what you cover in </span><span class="textLayer--absolute" style="left: 320.261px; top: 84.2094px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.0074);">Bootcamp Spot</span><span class="textLayer--absolute" style="left: 387.818px; top: 84.2094px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.988249);">, so make sure to dig into the </span><span class="textLayer--absolute" style="left: 29.4px; top: 97.6844px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.993434);">material as soon as possible. Virtual classes give you a chance to level up your skills by using what you learn in </span><span class="textLayer--absolute" style="left: 29.4px; top: 111.159px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.0074);">Bootcamp Spot</span><span class="textLayer--absolute" style="left: 96.9569px; top: 111.159px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00376);"> and getting hands-on practice with the guidance of industry professionals. </span><span class="textLayer--absolute" style="left: 75.9516px; top: 176.907px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.99525);">Virtual classes are on Zoom and 2 hours long. </span><span class="textLayer--absolute" style="left: 75.9516px; top: 204.71px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.986782);">There are open office hours before each </span><span class="textLayer--absolute" style="left: 75.9516px; top: 216.347px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.01755);">class.</span><span class="textLayer--absolute" style="left: 75.9516px; top: 244.15px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.998801);">You can miss no more than 8 classes.</span><span class="textLayer--absolute" style="left: 75.9516px; top: 277.771px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.985846);">Class recordings are available in </span><span class="textLayer--absolute" style="left: 218.454px; top: 277.771px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.0074);">Bootcamp Spot</span><span class="textLayer--absolute" style="left: 286.01px; top: 277.771px; font-size: 9.8px; font-family: sans-serif;">.</span><span class="textLayer--absolute" style="left: 30.752px; top: 144.617px; font-size: 11.4333px; font-family: sans-serif; transform: scaleX(0.987915);">What do I need to know? </span><span class="textLayer--absolute" style="left: 340.568px; top: 226.907px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.999693);">How do I prepare for class? </span><span class="textLayer--absolute" style="left: 340.568px; top: 240.382px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.985815);">Check out your Getting Ready for Virtual </span><span class="textLayer--absolute" style="left: 340.568px; top: 253.857px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.977291);">Class page in </span><span class="textLayer--absolute" style="left: 401.344px; top: 253.857px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.0074);">Bootcamp Spot</span><span class="textLayer--absolute" style="left: 468.901px; top: 253.857px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.01529);"> for </span><span class="textLayer--absolute" style="left: 340.568px; top: 267.332px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00552);">downloadable activity files and details on </span><span class="textLayer--absolute" style="left: 340.568px; top: 280.807px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00447);">which lessons to complete before each </span><span class="textLayer--absolute" style="left: 340.568px; top: 294.282px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.01755);">class.</span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"><div class="annotationLayer"><section data-annotation-id="annot_p6_1" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -392.156px -102.726px; left: 392.156px; top: 102.726px; width: 82.7226px; height: 14.4px;"><a title="http://courses.bootcampspot.com/" href="http://courses.bootcampspot.com/" target="_blank" rel="noopener noreferrer nofollow"></a></section><section data-annotation-id="annot_p6_2" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -36px -135.726px; left: 36px; top: 135.726px; width: 82.7227px; height: 14.4px;"><a title="http://courses.bootcampspot.com/" href="http://courses.bootcampspot.com/" target="_blank" rel="noopener noreferrer nofollow"></a></section><section data-annotation-id="annot_p6_3" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -267.494px -339.741px; left: 267.494px; top: 339.741px; width: 82.7227px; height: 14.4px;"><a title="http://courses.bootcampspot.com/" href="http://courses.bootcampspot.com/" target="_blank" rel="noopener noreferrer nofollow"></a></section><section data-annotation-id="annot_p6_4" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -491.442px -310.459px; left: 491.442px; top: 310.459px; width: 82.7227px; height: 14.4px;"><a title="http://courses.bootcampspot.com/" href="http://courses.bootcampspot.com/" target="_blank" rel="noopener noreferrer nofollow"></a></section></div></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-7" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 28.6091px; top: 17.0118px; font-size: 14.7px; font-family: sans-serif; transform: scaleX(1.00444);">Learning Technology </span><span class="textLayer--absolute" style="left: 29.4px; top: 49.2969px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.998503);">The online boot camp learning experience is centered on the following three technologies:</span><span class="textLayer--absolute" style="left: 567.608px; top: 318.928px; font-size: 4.9px; font-family: sans-serif;">8</span><span class="textLayer--absolute" style="left: 52.1681px; top: 85.4698px; font-size: 11.4333px; font-family: sans-serif; transform: scaleX(1.01179);">Bootcamp Spot</span><span class="textLayer--absolute" style="left: 154.556px; top: 85.3644px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.987876);">Our learning environment </span><span class="textLayer--absolute" style="left: 247.83px; top: 85.3644px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00823);">Bootcamp Spot</span><span class="textLayer--absolute" style="left: 304.105px; top: 85.3644px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.988493);"> is built on the leading cloud-based Canvas Learning </span><span class="textLayer--absolute" style="left: 154.556px; top: 96.3894px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00165);">Management System. This is your main hub for all course curriculum and assignments.</span><span class="textLayer--absolute" style="left: 103.037px; top: 131.039px; font-size: 11.4333px; font-family: sans-serif; transform: scaleX(1.01039);">Slack</span><span class="textLayer--absolute" style="left: 154.556px; top: 130.934px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.99864);">Slack, the popular business collaboration tool, is our core learning community space. </span><span class="textLayer--absolute" style="left: 154.556px; top: 141.959px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00556);">On Slack, you will communicate with peers and instructional staff to celebrate victories </span><span class="textLayer--absolute" style="left: 154.556px; top: 152.984px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.998438);">and troubleshoot challenges. You can access Slack through your web browser or install </span><span class="textLayer--absolute" style="left: 154.556px; top: 164.009px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00383);">the app on your computer and/or mobile device.</span><span class="textLayer--absolute" style="left: 101.659px; top: 198.659px; font-size: 11.4333px; font-family: sans-serif; transform: scaleX(1.01354);">Zoom</span><span class="textLayer--absolute" style="left: 154.556px; top: 198.553px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00234);">Zoom is where we hold all virtual classes. This video conferencing software allows us to connect in real </span><span class="textLayer--absolute" style="left: 154.556px; top: 209.578px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.99579);">time with video, audio, screen sharing, and chat. You will access Zoom directly through the course. </span><span class="textLayer--absolute" style="left: 154.556px; top: 220.603px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.989692);">Be sure to have your headset with mic and webcam ready. We also highly recommend having a second </span><span class="textLayer--absolute" style="left: 154.556px; top: 231.628px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00555);">monitor during these sessions so that you can practice coding as you interact with your classmates.</span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"><div class="annotationLayer"><section data-annotation-id="annot_p7_1" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -303.465px -104.205px; left: 303.465px; top: 104.205px; width: 68.9087px; height: 12px;"><a title="https://idp.bootcampspot.com/ui/?requestId=3688979d-9830-43eb-a6f4-160c43af871c" href="https://idp.bootcampspot.com/ui/?requestId=3688979d-9830-43eb-a6f4-160c43af871c" target="_blank" rel="noopener noreferrer nofollow"></a></section></div></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-8" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 28.6091px; top: 17.0118px; font-size: 14.7px; font-family: sans-serif; transform: scaleX(1.01337);">Minimum Technology Requirements</span><span class="textLayer--absolute" style="left: 29.4px; top: 49.2969px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.998807);">To successfully use the tools and technologies required in this course, you need the right equipment. </span><span class="textLayer--absolute" style="left: 567.608px; top: 318.928px; font-size: 4.9px; font-family: sans-serif;">9</span><span class="textLayer--absolute" style="left: 42.2746px; top: 77.4252px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00117);">Here’s what you need to get started:</span><span class="textLayer--absolute" style="left: 264.361px; top: 77.4252px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.01489);">Here’s what you'll need before your first virtual class:</span><span class="textLayer--absolute" style="left: 42.2746px; top: 102.309px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00542);">Laptop with Mac or Windows operating system </span><span class="textLayer--absolute" style="left: 42.2746px; top: 113.334px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00003);">(Note that you cannot use Linux in this course.)</span><span class="textLayer--absolute" style="left: 264.361px; top: 102.309px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.994772);">Webcam</span><span class="textLayer--absolute" style="left: 42.2746px; top: 136.117px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.981018);">8 GB RAM and 64-bit dual processor</span><span class="textLayer--absolute" style="left: 264.361px; top: 136.117px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.999543);">Headphones with a microphone </span><span class="textLayer--absolute" style="left: 42.2746px; top: 158.9px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.999819);">High-speed internet connection </span><span class="textLayer--absolute" style="left: 42.2746px; top: 169.925px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.997402);">(We recommend a download speed of at least 25 </span><span class="textLayer--absolute" style="left: 42.2746px; top: 180.95px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00016);">Mbps and an upload speed of at least 5 Mbps.)</span><span class="textLayer--absolute" style="left: 264.361px; top: 158.9px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00972);">An external monitor that is compatible with your laptop </span><span class="textLayer--absolute" style="left: 264.361px; top: 169.925px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00882);">(highly recommended for Zoom sessions)</span><span class="textLayer--absolute" style="left: 28.6091px; top: 218.809px; font-size: 14.7px; font-family: sans-serif; transform: scaleX(0.981876);">Course Feedback</span><span class="textLayer--absolute" style="left: 29.4px; top: 239.506px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.995309);">We believe in continually improving our program, whether it’s building in more targeted practice to support your learning, </span><span class="textLayer--absolute" style="left: 29.4px; top: 252.981px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.999005);">adding new content to address the evolving needs of a dynamic industry, or providing your instructor with innovative ideas </span><span class="textLayer--absolute" style="left: 29.4px; top: 266.456px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.993086);">to tailor the experience for your class. For this reason, we ask for your feedback at the end of each module, at the course </span><span class="textLayer--absolute" style="left: 29.4px; top: 279.931px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.992617);">midpoint, and at the end of the program. We appreciate your honest responses. </span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-9" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--is-pointer-down Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 48.6045px; top: 32.1205px; font-size: 19.6px; font-family: sans-serif; transform: scaleX(0.800167) translateY(-32.1205px) translateX(-60.743px); padding: 32.1205px 260.14px 8.83337px 60.743px;">Section 3: Course Assessment &amp; Requirements</span><span class="textLayer--absolute" style="left: 564.857px; top: 318.928px; font-size: 4.9px; font-family: sans-serif; transform: scaleX(1.00872) translateY(-25.148px) translateX(-559.975px); padding: 25.148px 17.4929px 6.92184px 559.975px;">10</span><span class="textLayer--absolute" style="left: 48.6045px; top: 90.8384px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.995704) translateY(-5.82557px) translateX(-48.8142px); padding: 5.82557px 115.749px 1.862px 48.8142px;">For each assignment, you will receive numerical and letter grades as shown in the following table. </span><span class="textLayer--absolute" style="left: 48.6045px; top: 104.362px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00191) translateY(-1.862px) translateX(-48.5121px); padding: 1.862px 140.522px 1.862px 48.5121px;">You will receive an Incomplete for assignments that do not meet the baseline requirements. </span><span class="textLayer--absolute" style="left: 48.6045px; top: 117.886px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00514) translateY(-1.862px) translateX(-48.3562px); padding: 1.862px 155.866px 1.862px 48.3562px;">All assignments that do not receive Incompletes count toward graduation requirements. </span><span class="textLayer--absolute" style="left: 48.6045px; top: 131.41px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.995315) translateY(-1.862px) translateX(-48.8333px); padding: 1.862px 224.387px 16.4174px 48.8333px;">Review your enrollment agreement for any minimum grade requirements.</span><span class="textLayer--absolute" style="left: 59.1907px; top: 174.045px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.973637) translateY(-16.4174px) translateX(-60.7934px); padding: 16.4174px 20.3186px 17.3686px 60.7934px;">A+</span><span class="textLayer--absolute" style="left: 108.695px; top: 174.658px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00954) translateY(-17.0299px) translateX(-19.596px); padding: 17.0299px 17.7111px 17.3686px 19.596px;">100</span><span class="textLayer--absolute" style="left: 158.2px; top: 174.045px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.946436) translateY(-16.4174px) translateX(-18.8921px); padding: 16.4174px 21.0493px 17.3686px 18.8921px;">B+</span><span class="textLayer--absolute" style="left: 207.705px; top: 174.658px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.04373) translateY(-17.0299px) translateX(-19.0871px); padding: 17.0299px 12.3698px 17.3686px 19.0871px;">88–91</span><span class="textLayer--absolute" style="left: 257.21px; top: 174.045px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.918715) translateY(-16.4174px) translateX(-14.053px); padding: 16.4174px 21.6133px 17.3686px 14.053px;">C+</span><span class="textLayer--absolute" style="left: 306.715px; top: 174.658px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.04373) translateY(-17.0299px) translateX(-19.0245px); padding: 17.0299px 12.3698px 17.3686px 19.0245px;">78–81</span><span class="textLayer--absolute" style="left: 356.219px; top: 174.045px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.914883) translateY(-16.4174px) translateX(-14.1119px); padding: 16.4174px 21.7261px 17.3686px 14.1119px;">D+</span><span class="textLayer--absolute" style="left: 405.724px; top: 174.658px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.04373) translateY(-17.0299px) translateX(-19.044px); padding: 17.0299px 12.3698px 17.3686px 19.044px;">70–71</span><span class="textLayer--absolute" style="left: 455.229px; top: 174.045px; font-size: 8.16667px; font-family: sans-serif; padding: 16.4174px 22.5188px 17.9811px 12.9107px; transform: translateY(-16.4174px) translateX(-12.9107px);">F</span><span class="textLayer--absolute" style="left: 504.734px; top: 174.658px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.951582) translateY(-17.0299px) translateX(-23.6646px); padding: 17.0299px 71.3942px 17.3686px 23.6646px;">&lt; 61</span><span class="textLayer--absolute" style="left: 59.1907px; top: 216.949px; font-size: 8.16667px; font-family: sans-serif; padding: 17.3686px 22.0084px 17.6749px 59.1907px; transform: translateY(-17.3686px) translateX(-59.1907px);">A</span><span class="textLayer--absolute" style="left: 108.695px; top: 217.562px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.04373) translateY(-17.3686px) translateX(-21.0862px); padding: 17.3686px 12.3697px 17.0624px 21.0862px;">95–99</span><span class="textLayer--absolute" style="left: 158.2px; top: 216.949px; font-size: 8.16667px; font-family: sans-serif; padding: 17.3686px 22.1472px 17.6749px 12.9107px; transform: translateY(-17.3686px) translateX(-12.9107px);">B</span><span class="textLayer--absolute" style="left: 207.705px; top: 217.562px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.04373) translateY(-17.3686px) translateX(-21.2192px); padding: 17.3686px 12.3698px 17.0624px 21.2192px;">85–87</span><span class="textLayer--absolute" style="left: 257.21px; top: 216.949px; font-size: 8.16667px; font-family: sans-serif; padding: 17.3686px 22.0819px 17.6749px 12.9107px; transform: translateY(-17.3686px) translateX(-12.9107px);">C</span><span class="textLayer--absolute" style="left: 306.715px; top: 217.562px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.04373) translateY(-17.3686px) translateX(-21.1566px); padding: 17.3686px 12.3698px 17.0624px 21.1566px;">75–78</span><span class="textLayer--absolute" style="left: 356.219px; top: 216.949px; font-size: 8.16667px; font-family: sans-serif; padding: 17.3686px 22.1023px 17.6749px 12.9107px; transform: translateY(-17.3686px) translateX(-12.9107px);">D</span><span class="textLayer--absolute" style="left: 405.724px; top: 217.562px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.04373) translateY(-17.3686px) translateX(-21.1762px); padding: 17.3686px 151.947px 17.0624px 21.1762px;">65–69</span><span class="textLayer--absolute" style="left: 59.1907px; top: 259.853px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.06616) translateY(-17.0624px) translateX(-55.5176px); padding: 17.0624px 18.226px 25.7605px 55.5176px;">A–</span><span class="textLayer--absolute" style="left: 108.695px; top: 260.465px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.04373) translateY(-17.6749px) translateX(-18.6176px); padding: 17.6749px 12.3697px 25.148px 18.6176px;">92–94</span><span class="textLayer--absolute" style="left: 158.2px; top: 259.853px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.03834) translateY(-17.0624px) translateX(-12.434px); padding: 17.0624px 18.848px 25.7605px 12.434px;">B–</span><span class="textLayer--absolute" style="left: 207.705px; top: 260.465px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.04373) translateY(-17.6749px) translateX(-18.7506px); padding: 17.6749px 12.3698px 25.148px 18.7506px;">82–84</span><span class="textLayer--absolute" style="left: 257.21px; top: 259.853px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00605) translateY(-17.0624px) translateX(-12.8331px); padding: 17.0624px 19.388px 25.7605px 12.8331px;">C–</span><span class="textLayer--absolute" style="left: 306.715px; top: 260.465px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.04373) translateY(-17.6749px) translateX(-18.688px); padding: 17.6749px 12.3698px 25.148px 18.688px;">72–74</span><span class="textLayer--absolute" style="left: 356.219px; top: 259.853px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00213) translateY(-17.0624px) translateX(-12.8832px); padding: 17.0624px 19.4841px 25.7605px 12.8832px;">D–</span><span class="textLayer--absolute" style="left: 405.724px; top: 260.465px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.04373) translateY(-17.6749px) translateX(-18.7076px); padding: 17.6749px 151.947px 25.148px 18.7076px;">62–64</span><span class="textLayer--absolute" style="left: 59.8181px; top: 69.3872px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00416) translateY(-8.83337px) translateX(-59.5701px); padding: 8.83337px 462.263px 5.82557px 59.5701px;">Grading Policy</span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-10" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 28.6091px; top: 17.0118px; font-size: 14.7px; font-family: sans-serif; transform: scaleX(1.015);">Assessment Criteria</span><span class="textLayer--absolute" style="left: 29.4px; top: 49.2969px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.997469);">You will receive an overall grade for the course based on the following assessments. </span><span class="textLayer--absolute" style="left: 29.4px; top: 62.7719px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00307);">Note that your two lowest Challenge assignment scores (or skipped assignments) will be dropped.</span><span class="textLayer--absolute" style="left: 564.857px; top: 318.928px; font-size: 4.9px; font-family: sans-serif; transform: scaleX(1.08033);">11</span><span class="textLayer--absolute" style="left: 40.4178px; top: 107.257px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.02355);">Assessment</span><span class="textLayer--absolute" style="left: 155.397px; top: 107.257px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.02884);">Description</span><span class="textLayer--absolute" style="left: 397.849px; top: 107.257px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.01189);">Number</span><span class="textLayer--absolute" style="left: 456.066px; top: 107.257px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.967151);">% of Final Grade</span><span class="textLayer--absolute" style="left: 40.4178px; top: 141.557px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.01446);">Challenge Assignments</span><span class="textLayer--absolute" style="left: 155.397px; top: 141.557px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.99083);">Weekly individual assignments where key skills learned in a </span><span class="textLayer--absolute" style="left: 155.397px; top: 152.582px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.993221);">module are applied. You will receive rubric-based feedback </span><span class="textLayer--absolute" style="left: 155.397px; top: 163.607px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00259);">and the lowest two grades will be discarded.</span><span class="textLayer--absolute" style="left: 397.849px; top: 141.741px; font-size: 13.8833px; font-family: sans-serif; transform: scaleX(1.02155);">18</span><span class="textLayer--absolute" style="left: 456.066px; top: 141.741px; font-size: 13.8833px; font-family: sans-serif; transform: scaleX(0.93454);">70%</span><span class="textLayer--absolute" style="left: 40.4178px; top: 198.151px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.03287);">Projects</span><span class="textLayer--absolute" style="left: 155.397px; top: 198.151px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00038);">Each of the three sections culminates in a group project </span><span class="textLayer--absolute" style="left: 155.397px; top: 209.176px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.997417);">where teams apply key technologies learned in that section </span><span class="textLayer--absolute" style="left: 155.397px; top: 220.201px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.01438);">to build dynamic applications.</span><span class="textLayer--absolute" style="left: 397.849px; top: 198.336px; font-size: 13.8833px; font-family: sans-serif;">3</span><span class="textLayer--absolute" style="left: 456.066px; top: 198.336px; font-size: 13.8833px; font-family: sans-serif; transform: scaleX(0.93454);">30%</span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-11" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 28.6091px; top: 17.0118px; font-size: 14.7px; font-family: sans-serif; transform: scaleX(0.995924);">Graduation Requirements</span><span class="textLayer--absolute" style="left: 29.4px; top: 49.2969px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00599);">Graduates of the program will receive a certificate of completion from the university. </span><span class="textLayer--absolute" style="left: 29.4px; top: 62.7719px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.997435);">In order to graduate from this course and receive your certificate, you must:</span><span class="textLayer--absolute" style="left: 564.857px; top: 318.928px; font-size: 4.9px; font-family: sans-serif; transform: scaleX(1.00872);">12</span><span class="textLayer--absolute" style="left: 38.1808px; top: 94.7305px; font-size: 24.5px; font-family: sans-serif; transform: scaleX(0.99613);">01</span><span class="textLayer--absolute" style="left: 38.1808px; top: 149.384px; font-size: 24.5px; font-family: sans-serif; transform: scaleX(0.99613);">02</span><span class="textLayer--absolute" style="left: 38.1808px; top: 203.729px; font-size: 24.5px; font-family: sans-serif; transform: scaleX(0.99613);">03</span><span class="textLayer--absolute" style="left: 38.1808px; top: 258.381px; font-size: 24.5px; font-family: sans-serif; transform: scaleX(0.99613);">04</span><span class="textLayer--absolute" style="left: 99.0466px; top: 104.535px; font-size: 11.4333px; font-family: sans-serif; transform: scaleX(1.00066);">Complete all online modules.</span><span class="textLayer--absolute" style="left: 99.0466px; top: 156.771px; font-size: 11.4333px; font-family: sans-serif; transform: scaleX(1.00118);">Miss no more than 8 required virtual classes (via Zoom).</span><span class="textLayer--absolute" style="left: 99.8375px; top: 210.962px; font-size: 11.4333px; font-family: sans-serif; transform: scaleX(1.00474);">Complete all projects.</span><span class="textLayer--absolute" style="left: 99.0466px; top: 265.151px; font-size: 11.4333px; font-family: sans-serif; transform: scaleX(0.998131);">Miss no more than 2 Challenge assignments.</span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-12" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 48.6045px; top: 32.1205px; font-size: 19.6px; font-family: sans-serif; transform: scaleX(0.814704);">Section 4: Support</span><span class="textLayer--absolute" style="left: 564.857px; top: 318.928px; font-size: 4.9px; font-family: sans-serif; transform: scaleX(1.00872);">13</span><span class="textLayer--absolute" style="left: 48.6045px; top: 90.8384px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.994023);">We believe that a robust support team is essential to success in the program. Here are the core </span><span class="textLayer--absolute" style="left: 48.6045px; top: 104.362px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00406);">members of your team:</span><span class="textLayer--absolute" style="left: 82.14px; top: 131.137px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.05573);">Instructor</span><span class="textLayer--absolute" style="left: 132.314px; top: 131.137px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01008);">Your instructor is the lead facilitator for your learning </span><span class="textLayer--absolute" style="left: 132.314px; top: 139.099px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00162);">experience. Your instructor will manage all virtual classes and </span><span class="textLayer--absolute" style="left: 132.314px; top: 147.062px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.992561);">office hours, guide the TA team, and monitor your progress. </span><span class="textLayer--absolute" style="left: 351.894px; top: 131.137px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02841);">Tutor </span><span class="textLayer--absolute" style="left: 342.862px; top: 140.324px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.03121);">Network</span><span class="textLayer--absolute" style="left: 388.995px; top: 131.137px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.993336);">If you need additional help to get back on track, </span><span class="textLayer--absolute" style="left: 388.995px; top: 139.099px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.978735);">your SSM can arrange one-on-one  tutoring </span><span class="textLayer--absolute" style="left: 388.995px; top: 147.062px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02702);">support.</span><span class="textLayer--absolute" style="left: 83.9281px; top: 172.663px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02254);">Teaching </span><span class="textLayer--absolute" style="left: 62.1451px; top: 181.85px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.03605);">Assistants (TAs)</span><span class="textLayer--absolute" style="left: 132.314px; top: 172.663px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.997997);">TAs provide support and guidance. TAs attend virtual classes, </span><span class="textLayer--absolute" style="left: 132.314px; top: 180.625px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.0016);">helping troubleshoot issues and lead small breakout groups. </span><span class="textLayer--absolute" style="left: 132.314px; top: 188.588px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00337);">TAs also provide additional office-hour sessions on Zoom.</span><span class="textLayer--absolute" style="left: 354.007px; top: 172.663px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01168);">Your </span><span class="textLayer--absolute" style="left: 350.597px; top: 181.85px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.994651);">Peers</span><span class="textLayer--absolute" style="left: 388.995px; top: 172.663px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.997324);">You'll chat with other students, ask for help, and </span><span class="textLayer--absolute" style="left: 388.995px; top: 180.625px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.999531);">assist others in class and Slack. You’ll also </span><span class="textLayer--absolute" style="left: 388.995px; top: 188.588px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00284);">connect in group projects and study groups.</span><span class="textLayer--absolute" style="left: 61.6029px; top: 216.639px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00164);">Student Success </span><span class="textLayer--absolute" style="left: 64.911px; top: 225.827px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.997448);">Manager (SSM)</span><span class="textLayer--absolute" style="left: 132.314px; top: 216.639px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.984796);">Your SSM oversees your experience and assists you with any </span><span class="textLayer--absolute" style="left: 132.314px; top: 224.602px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00061);">non-curriculum needs, including questions about course </span><span class="textLayer--absolute" style="left: 132.314px; top: 232.564px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.989482);">structure, delivery, or policies. If you don’t know where to go, </span><span class="textLayer--absolute" style="left: 132.314px; top: 240.527px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.980687);">who to ask, or what to do, ask your SSM! </span><span class="textLayer--absolute" style="left: 348.031px; top: 216.639px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.971566);">Career </span><span class="textLayer--absolute" style="left: 351.126px; top: 224.602px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02944);">Team</span><span class="textLayer--absolute" style="left: 388.995px; top: 216.639px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.981083);">Your Career Coach and Career Material Advisors </span><span class="textLayer--absolute" style="left: 388.995px; top: 224.602px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00472);">will support you in becoming employer </span><span class="textLayer--absolute" style="left: 388.995px; top: 232.564px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.997178);">competitive. Your Career Team is an optional </span><span class="textLayer--absolute" style="left: 388.995px; top: 240.527px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.997928);">service available throughout the program. </span><span class="textLayer--absolute" style="left: 85.1675px; top: 266.128px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00413);">Learning </span><span class="textLayer--absolute" style="left: 79.7656px; top: 275.315px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.03715);">Assistants </span><span class="textLayer--absolute" style="left: 132.314px; top: 266.128px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.997702);">The Learning Assistant team is available to answer quick </span><span class="textLayer--absolute" style="left: 132.314px; top: 274.09px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00355);">coding and  concept questions via Slack outside of class </span><span class="textLayer--absolute" style="left: 132.314px; top: 282.053px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.990904);">hours. Simply use the #AskBCS tool in Slack to connect.</span><span class="textLayer--absolute" style="left: 57.2329px; top: 69.3872px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.01758);">Your Support Community</span><span class="textLayer--absolute" style="left: 48.6045px; top: 32.1205px; font-size: 19.6px; font-family: sans-serif; transform: scaleX(0.814704);">Section 4: Support</span><span class="textLayer--absolute" style="left: 564.857px; top: 318.928px; font-size: 4.9px; font-family: sans-serif; transform: scaleX(1.00872);">13</span><span class="textLayer--absolute" style="left: 48.6045px; top: 90.8384px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.994023);">We believe that a robust support team is essential to success in the program. Here are the core </span><span class="textLayer--absolute" style="left: 48.6045px; top: 104.362px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00406);">members of your team:</span><span class="textLayer--absolute" style="left: 82.14px; top: 131.137px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.05573);">Instructor</span><span class="textLayer--absolute" style="left: 132.314px; top: 131.137px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01008);">Your instructor is the lead facilitator for your learning </span><span class="textLayer--absolute" style="left: 132.314px; top: 139.099px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00162);">experience. Your instructor will manage all virtual classes and </span><span class="textLayer--absolute" style="left: 132.314px; top: 147.062px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.992561);">office hours, guide the TA team, and monitor your progress. </span><span class="textLayer--absolute" style="left: 351.894px; top: 131.137px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02841);">Tutor </span><span class="textLayer--absolute" style="left: 342.862px; top: 140.324px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.03121);">Network</span><span class="textLayer--absolute" style="left: 388.995px; top: 131.137px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.993336);">If you need additional help to get back on track, </span><span class="textLayer--absolute" style="left: 388.995px; top: 139.099px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.978735);">your SSM can arrange one-on-one  tutoring </span><span class="textLayer--absolute" style="left: 388.995px; top: 147.062px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02702);">support.</span><span class="textLayer--absolute" style="left: 83.9281px; top: 172.663px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02254);">Teaching </span><span class="textLayer--absolute" style="left: 62.1451px; top: 181.85px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.03605);">Assistants (TAs)</span><span class="textLayer--absolute" style="left: 132.314px; top: 172.663px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.997997);">TAs provide support and guidance. TAs attend virtual classes, </span><span class="textLayer--absolute" style="left: 132.314px; top: 180.625px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.0016);">helping troubleshoot issues and lead small breakout groups. </span><span class="textLayer--absolute" style="left: 132.314px; top: 188.588px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00337);">TAs also provide additional office-hour sessions on Zoom.</span><span class="textLayer--absolute" style="left: 354.007px; top: 172.663px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.01168);">Your </span><span class="textLayer--absolute" style="left: 350.597px; top: 181.85px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.994651);">Peers</span><span class="textLayer--absolute" style="left: 388.995px; top: 172.663px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.997324);">You'll chat with other students, ask for help, and </span><span class="textLayer--absolute" style="left: 388.995px; top: 180.625px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.999531);">assist others in class and Slack. You’ll also </span><span class="textLayer--absolute" style="left: 388.995px; top: 188.588px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00284);">connect in group projects and study groups.</span><span class="textLayer--absolute" style="left: 61.6029px; top: 216.639px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00164);">Student Success </span><span class="textLayer--absolute" style="left: 64.911px; top: 225.827px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.997448);">Manager (SSM)</span><span class="textLayer--absolute" style="left: 132.314px; top: 216.639px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.984796);">Your SSM oversees your experience and assists you with any </span><span class="textLayer--absolute" style="left: 132.314px; top: 224.602px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00061);">non-curriculum needs, including questions about course </span><span class="textLayer--absolute" style="left: 132.314px; top: 232.564px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.989482);">structure, delivery, or policies. If you don’t know where to go, </span><span class="textLayer--absolute" style="left: 132.314px; top: 240.527px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.980687);">who to ask, or what to do, ask your SSM! </span><span class="textLayer--absolute" style="left: 348.031px; top: 216.639px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.971566);">Career </span><span class="textLayer--absolute" style="left: 351.126px; top: 224.602px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.02944);">Team</span><span class="textLayer--absolute" style="left: 388.995px; top: 216.639px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.981083);">Your Career Coach and Career Material Advisors </span><span class="textLayer--absolute" style="left: 388.995px; top: 224.602px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00472);">will support you in becoming employer </span><span class="textLayer--absolute" style="left: 388.995px; top: 232.564px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.997178);">competitive. Your Career Team is an optional </span><span class="textLayer--absolute" style="left: 388.995px; top: 240.527px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.997928);">service available throughout the program. </span><span class="textLayer--absolute" style="left: 85.1675px; top: 266.128px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00413);">Learning </span><span class="textLayer--absolute" style="left: 79.7656px; top: 275.315px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.03715);">Assistants </span><span class="textLayer--absolute" style="left: 132.314px; top: 266.128px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.997702);">The Learning Assistant team is available to answer quick </span><span class="textLayer--absolute" style="left: 132.314px; top: 274.09px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(1.00355);">coding and  concept questions via Slack outside of class </span><span class="textLayer--absolute" style="left: 132.314px; top: 282.053px; font-size: 6.53333px; font-family: sans-serif; transform: scaleX(0.990904);">hours. Simply use the #AskBCS tool in Slack to connect.</span><span class="textLayer--absolute" style="left: 57.2329px; top: 69.3872px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.01758);">Your Support Community</span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-13" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 28.6091px; top: 17.0118px; font-size: 14.7px; font-family: sans-serif; transform: scaleX(1.00994);">Support: Tips for Success</span><span class="textLayer--absolute" style="left: 564.857px; top: 318.928px; font-size: 4.9px; font-family: sans-serif; transform: scaleX(1.00872);">14</span><span class="textLayer--absolute" style="left: 29.4px; top: 49.2969px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.997051);">We’re excited that you’ve committed to the FinTech Boot Camp. It may be difficult at some </span><span class="textLayer--absolute" style="left: 29.4px; top: 60.9344px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.996127);">points, but with your dedication and our support, you will have the tools you need to thrive.</span><span class="textLayer--absolute" style="left: 39.1692px; top: 83.7276px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 83.5442px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.996819);">Establish your weekly schedule upfront. Identify a safe, quiet place to work and discuss your </span><span class="textLayer--absolute" style="left: 49.98px; top: 94.5692px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00063);">plans with family and friends to ensure you get the needed support.</span><span class="textLayer--absolute" style="left: 39.1692px; top: 110.678px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 110.494px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.993247);">Sync your class calendar to your phone or web calendars so that your assignment and </span><span class="textLayer--absolute" style="left: 49.98px; top: 121.519px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.994301);">virtual class dates are always handy. Your learning environment contains an easy iCal link.</span><span class="textLayer--absolute" style="left: 39.1692px; top: 137.628px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 137.444px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.994344);">Start the online lessons early to give you ample time to complete them. Some weeks may be harder </span><span class="textLayer--absolute" style="left: 49.98px; top: 148.469px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.999078);">than others depending on the topics covered. It helps to know what to expect early.</span><span class="textLayer--absolute" style="left: 39.1692px; top: 164.578px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 164.394px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.996579);">Attend as many office-hour sessions throughout the week as you can. </span><span class="textLayer--absolute" style="left: 39.1692px; top: 180.503px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 180.319px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.991521);">Remember that you are not alone. If you are struggling, it means that others are too.  Make </span><span class="textLayer--absolute" style="left: 49.98px; top: 191.344px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.988766);">connections. Help your peers and ask for their help as needed. Set up a study group. </span><span class="textLayer--absolute" style="left: 39.1692px; top: 207.453px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 207.269px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.994961);">Connect with your Student Success Manager (SSM) for any non-curriculum support. </span><span class="textLayer--absolute" style="left: 49.98px; top: 218.294px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.991272);">Your SSM is entirely dedicated to your success and can guide you with any support you need.</span><span class="textLayer--absolute" style="left: 39.1692px; top: 234.403px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 234.219px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.996149);">Focus on the big picture—beyond the specific skills of the week. A key element of this boot camp </span><span class="textLayer--absolute" style="left: 49.98px; top: 245.244px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.998738);">is “learning how to learn.” Skills will change as technology changes, but the critical thinking </span><span class="textLayer--absolute" style="left: 49.98px; top: 256.269px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.996647);">techniques you learn in this course will help you evolve with the field.</span><span class="textLayer--absolute" style="left: 39.1692px; top: 272.378px; font-size: 8.16667px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 272.194px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.991038);">Celebrate your wins and those of your peers. If you’re feeling proud of a creation or a </span><span class="textLayer--absolute" style="left: 49.98px; top: 283.219px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.979959);">hurdle you’ve overcome, share it in Slack!</span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-14" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 48.6045px; top: 32.1205px; font-size: 19.6px; font-family: sans-serif; transform: scaleX(0.811489);">Section 5: Expectations &amp; Policies</span><span class="textLayer--absolute" style="left: 564.857px; top: 318.928px; font-size: 4.9px; font-family: sans-serif; transform: scaleX(1.00872);">15</span><span class="textLayer--absolute" style="left: 48.6045px; top: 107.081px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.995732);">You should expect to spend around </span><span class="textLayer--absolute" style="left: 48.6045px; top: 118.351px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.998104);">20–30 hours a week working on your </span><span class="textLayer--absolute" style="left: 48.6045px; top: 129.621px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.993393);">course. However, the actual amount </span><span class="textLayer--absolute" style="left: 48.6045px; top: 140.891px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.996494);">of time you spend will depend on a </span><span class="textLayer--absolute" style="left: 48.6045px; top: 152.161px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00575);">number of factors, including your </span><span class="textLayer--absolute" style="left: 48.6045px; top: 163.431px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00228);">pace, comfort level with the material, </span><span class="textLayer--absolute" style="left: 48.6045px; top: 174.701px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.999869);">and your attendance at optional </span><span class="textLayer--absolute" style="left: 48.6045px; top: 185.971px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.988301);">sessions. In general, online lessons </span><span class="textLayer--absolute" style="left: 48.6045px; top: 197.241px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.996051);">should take an average of 10–15 </span><span class="textLayer--absolute" style="left: 48.6045px; top: 208.511px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.984234);">hours a week and the weekly </span><span class="textLayer--absolute" style="left: 48.6045px; top: 219.781px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.993536);">Challenge should take 5–10 hours a </span><span class="textLayer--absolute" style="left: 48.6045px; top: 231.051px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00445);">week. You will want to track yourself </span><span class="textLayer--absolute" style="left: 48.6045px; top: 242.321px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00015);">early in the course to identify how </span><span class="textLayer--absolute" style="left: 48.6045px; top: 253.591px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.991479);">long you spend on each section and </span><span class="textLayer--absolute" style="left: 48.6045px; top: 264.861px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.0105);">adjust expectations accordingly. </span><span class="textLayer--absolute" style="left: 58.7115px; top: 83.187px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.01893);">Time Expectations</span><span class="textLayer--absolute" style="left: 232.173px; top: 107.982px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.992923);">All weekly Challenge assignments </span><span class="textLayer--absolute" style="left: 232.173px; top: 119.252px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.995476);">are due at 11:59 PM university time </span><span class="textLayer--absolute" style="left: 232.173px; top: 130.522px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.996747);">on Sundays. It’s important that you </span><span class="textLayer--absolute" style="left: 232.173px; top: 141.792px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00823);">follow these dates to stay on target </span><span class="textLayer--absolute" style="left: 232.173px; top: 153.062px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.987155);">and receive timely feedback. The </span><span class="textLayer--absolute" style="left: 232.173px; top: 164.332px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00326);">program moves fast, so it will be </span><span class="textLayer--absolute" style="left: 232.173px; top: 175.602px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.02108);">difficult to catch up if you fall </span><span class="textLayer--absolute" style="left: 232.173px; top: 186.872px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.989913);">behind. You may skip two Challenge </span><span class="textLayer--absolute" style="left: 232.173px; top: 198.142px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00506);">assignments if you wish. In those </span><span class="textLayer--absolute" style="left: 232.173px; top: 209.412px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00293);">cases, simply submit the </span><span class="textLayer--absolute" style="left: 232.173px; top: 220.681px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00584);">assignment as a statement that you </span><span class="textLayer--absolute" style="left: 232.173px; top: 231.951px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00842);">are skipping it. You must submit all </span><span class="textLayer--absolute" style="left: 232.173px; top: 243.221px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.998358);">work by the last day of the course.</span><span class="textLayer--absolute" style="left: 242.167px; top: 84.0872px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.0203);">Late Assignment Policy</span><span class="textLayer--absolute" style="left: 417.841px; top: 101.133px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.990418);">There are no prerequisites for the </span><span class="textLayer--absolute" style="left: 417.841px; top: 112.403px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.982126);">course. However, you must have </span><span class="textLayer--absolute" style="left: 417.841px; top: 123.673px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00902);">fundamental computer skills and be </span><span class="textLayer--absolute" style="left: 417.841px; top: 134.943px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.01033);">comfortable using the internet. This </span><span class="textLayer--absolute" style="left: 417.841px; top: 146.213px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.0085);">course covers the skills common </span><span class="textLayer--absolute" style="left: 417.841px; top: 157.483px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(1.00902);">among fintech professionals and </span><span class="textLayer--absolute" style="left: 417.841px; top: 168.753px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.992282);">demanded by industry. You are not </span><span class="textLayer--absolute" style="left: 417.841px; top: 180.023px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.985939);">required to have any coding </span><span class="textLayer--absolute" style="left: 417.841px; top: 191.293px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.983228);">experience, but should be ready to </span><span class="textLayer--absolute" style="left: 417.841px; top: 202.563px; font-size: 8.16667px; font-family: sans-serif; transform: scaleX(0.999191);">learn how coding languages work.</span><span class="textLayer--absolute" style="left: 427.105px; top: 79.7724px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.02691);">Prerequisites</span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-15" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 28.6091px; top: 17.0118px; font-size: 14.7px; font-family: sans-serif; transform: scaleX(1.00919);">Communication Guidelines</span><span class="textLayer--absolute" style="left: 564.857px; top: 318.928px; font-size: 4.9px; font-family: sans-serif; transform: scaleX(1.00872);">16</span><span class="textLayer--absolute" style="left: 29.4px; top: 49.2969px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00114);">At times, a boot camp can be stressful as you fight to crack the code of emerging skills. Therefore, it’s important to be </span><span class="textLayer--absolute" style="left: 29.4px; top: 62.7719px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.999663);">mindful of the needs of your peers and support teams, and be courteous in how you communicate. This is especially true </span><span class="textLayer--absolute" style="left: 29.4px; top: 76.2469px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00196);">in online communication spaces such as email or Slack, where it’s easy to misinterpret comments. Consider the following </span><span class="textLayer--absolute" style="left: 29.4px; top: 89.7219px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.01475);">communication guidelines:</span><span class="textLayer--absolute" style="left: 82.0766px; top: 123.105px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.995222);">Use encouraging, supportive tones when interacting with peers.</span><span class="textLayer--absolute" style="left: 82.0766px; top: 162.305px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.993081);">Try to help peers who are stuck on a topic.</span><span class="textLayer--absolute" style="left: 82.0766px; top: 200.048px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00864);">Take opportunities to thank your support team for their help.</span><span class="textLayer--absolute" style="left: 82.0766px; top: 238.023px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.993192);">Avoid yelling, sarcasm, and abusive language directed at peers or support team members.</span><span class="textLayer--absolute" style="left: 82.0766px; top: 270.18px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00053);">Be clear and specific in all of your help requests. Include screenshots and locations for content </span><span class="textLayer--absolute" style="left: 82.0766px; top: 281.817px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00353);">trouble spots so that your TAs and peers can assist efficiently.</span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-16" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 28.6091px; top: 17.0118px; font-size: 14.7px; font-family: sans-serif; transform: scaleX(1.00712);">Expectations &amp; Policies</span><span class="textLayer--absolute" style="left: 564.857px; top: 318.928px; font-size: 4.9px; font-family: sans-serif; transform: scaleX(1.00872);">17</span><span class="textLayer--absolute" style="left: 44.5412px; top: 56.9051px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(1.00416);">Code of Conduct / </span><span class="textLayer--absolute" style="left: 42.1008px; top: 67.0481px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(1.01417);">Academic Honesty</span><span class="textLayer--absolute" style="left: 121.449px; top: 56.9051px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(0.998681);">You are expected to work independently on all of your assignments and submit your own work. Any violations of the university’s </span><span class="textLayer--absolute" style="left: 121.449px; top: 67.0481px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(0.997112);">academic honesty policy may result in your removal from the program. Please consult with your Student Success Manager if you </span><span class="textLayer--absolute" style="left: 121.449px; top: 77.1911px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(0.994792);">have any questions about the university’s policy.</span><span class="textLayer--absolute" style="left: 66.5768px; top: 105.551px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(1.00298);">Drop Policy</span><span class="textLayer--absolute" style="left: 121.449px; top: 105.551px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(0.993307);">In the event you are not able to take the course, you can drop within the timeframe outlined in your enrollment agreement and </span><span class="textLayer--absolute" style="left: 121.449px; top: 115.694px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(0.997381);">receive a refund of your balance paid. After the first full week, you are required to fulfill your tuition payments regardless of your </span><span class="textLayer--absolute" style="left: 121.449px; top: 125.837px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(1.0026);">status in the course. </span><span class="textLayer--absolute" style="left: 121.449px; top: 140.88px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(0.994347);">If you wish to drop, you must contact your SSM.</span><span class="textLayer--absolute" style="left: 54.2993px; top: 167.338px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(1.03358);">Tutoring Policy</span><span class="textLayer--absolute" style="left: 121.449px; top: 167.338px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(0.99878);">We offer tutoring for students who need additional support through one-on-one, 50-minute, remote online sessions. While this </span><span class="textLayer--absolute" style="left: 121.449px; top: 177.481px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(1.00255);">service is included with tuition, you must be in good standing with class attendance, payment, and assignment submissions to </span><span class="textLayer--absolute" style="left: 121.449px; top: 187.624px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(0.998436);">qualify for tutoring. Students are granted one session per week during the course. You cannot accrue additional sessions nor can </span><span class="textLayer--absolute" style="left: 121.449px; top: 197.767px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(0.992832);">they be held after the graduation date. </span><span class="textLayer--absolute" style="left: 121.449px; top: 212.81px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(1.00774);">Failure to show up for a scheduled tutoring session will result in ineligibility for future tutoring. Cancellations for a tutoring session </span><span class="textLayer--absolute" style="left: 121.449px; top: 222.953px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(1.00141);">must be made at least six hours prior to the call. </span><span class="textLayer--absolute" style="left: 40.091px; top: 249.412px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(1.00056);">Career Team Policy</span><span class="textLayer--absolute" style="left: 121.449px; top: 249.412px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(0.986154);">The Career Team strives to help you become employer competitive. They offer support via a Career Material Advisor, Career Coach, </span><span class="textLayer--absolute" style="left: 121.449px; top: 259.555px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(0.987985);">in-person demo days, and online workshops and events. </span><span class="textLayer--absolute" style="left: 121.449px; top: 274.598px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(0.996454);">Students have access to 1:1 career coaching with their Career Coach from the first day of class until 90 days after graduation. </span><span class="textLayer--absolute" style="left: 121.449px; top: 289.641px; font-size: 7.35px; font-family: sans-serif; transform: scaleX(0.991468);">The Career Material Advisor will respond within 96 business hours, and your Career Coach will respond within 24 business hours. </span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="Page-container" style="width: 588px; border-top: 1px dashed rgb(168, 168, 168);"><div class="Page PageComponent" id="page-17" tabindex="-1" style="height: 332.75px; width: 590px;"><div class="Page-canvas-container" style="height: 332.75px; width: 590px;"><canvas class="pageContainer" data-original-height="661.5" data-original-width="1176" height="661" width="1176"></canvas></div><div class="Draw Draw--not-drawing Draw--selection" style="position: absolute; height: 330.75px; width: 588px;"><div class="TextLayer-container" style="height: 330.75px; width: 588px; position: absolute; left: 0px; top: 0px;"><div class="textLayer"><span class="textLayer--absolute" style="left: 28.6091px; top: 17.0118px; font-size: 14.7px; font-family: sans-serif; transform: scaleX(1.01599);">Accessibility &amp; Privacy Policies</span><span class="textLayer--absolute" style="left: 29.4px; top: 49.2969px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.998481);">Our program is designed to make learning accessible to all students. We optimize content for screen </span><span class="textLayer--absolute" style="left: 29.4px; top: 62.7719px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.987181);">readers and use captioning on videos, and our technology and course design meet WCAG 2.0 standards. </span><span class="textLayer--absolute" style="left: 483.865px; top: 62.7719px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.0378);">If </span><span class="textLayer--absolute" style="left: 29.4px; top: 76.2469px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.988529);">you require additional assistance, please reach out to your SSM.</span><span class="textLayer--absolute" style="left: 564.857px; top: 318.928px; font-size: 4.9px; font-family: sans-serif; transform: scaleX(1.00872);">18</span><span class="textLayer--absolute" style="left: 29.4px; top: 102.121px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.02751);">The following links display the accessibility policies for technology used in the course:</span><span class="textLayer--absolute" style="left: 38.1808px; top: 120.717px; font-size: 9.8px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 120.496px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.967079);">Canvas</span><span class="textLayer--absolute" style="left: 38.1808px; top: 139.092px; font-size: 9.8px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 138.871px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.984333);">Slack</span><span class="textLayer--absolute" style="left: 38.1808px; top: 157.467px; font-size: 9.8px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 157.246px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.01872);">Zoom</span><span class="textLayer--absolute" style="left: 38.1808px; top: 175.842px; font-size: 9.8px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 175.621px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00244);">Learnosity</span><span class="textLayer--absolute" style="left: 29.4px; top: 212.371px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.02447);">The following links display privacy policies for technology used in the course:</span><span class="textLayer--absolute" style="left: 38.1808px; top: 230.967px; font-size: 9.8px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 230.746px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.967079);">Canvas</span><span class="textLayer--absolute" style="left: 38.1808px; top: 249.342px; font-size: 9.8px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 249.121px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(0.984333);">Slack</span><span class="textLayer--absolute" style="left: 38.1808px; top: 267.717px; font-size: 9.8px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 267.496px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.01872);">Zoom</span><span class="textLayer--absolute" style="left: 38.1808px; top: 286.091px; font-size: 9.8px; font-family: sans-serif;">●</span><span class="textLayer--absolute" style="left: 49.98px; top: 285.871px; font-size: 9.8px; font-family: sans-serif; transform: scaleX(1.00244);">Learnosity</span></div></div><div class="PDFAnnotationLayer-container" style="position: absolute; left: 0px; top: 0px;"><div class="annotationLayer"><section data-annotation-id="annot_p17_1" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -61.2px -147.159px; left: 61.2px; top: 147.159px; width: 39.3984px; height: 14.4px;"><a title="https://www.instructure.com/canvas/accessibility" href="https://www.instructure.com/canvas/accessibility" target="_blank" rel="noopener noreferrer nofollow"></a></section><section data-annotation-id="annot_p17_2" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -61.2px -169.659px; left: 61.2px; top: 169.659px; width: 28.9219px; height: 14.4px;"><a title="https://slack.com/accessibility-plan" href="https://slack.com/accessibility-plan" target="_blank" rel="noopener noreferrer nofollow"></a></section><section data-annotation-id="annot_p17_3" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -61.2px -192.159px; left: 61.2px; top: 192.159px; width: 31.2656px; height: 14.4px;"><a title="https://zoom.us/accessibility" href="https://zoom.us/accessibility" target="_blank" rel="noopener noreferrer nofollow"></a></section><section data-annotation-id="annot_p17_4" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -61.2px -214.659px; left: 61.2px; top: 214.659px; width: 55.5645px; height: 14.4px;"><a title="https://learnosity.com/accessibility/" href="https://learnosity.com/accessibility/" target="_blank" rel="noopener noreferrer nofollow"></a></section><section data-annotation-id="annot_p17_5" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -61.2px -282.159px; left: 61.2px; top: 282.159px; width: 39.3984px; height: 14.4px;"><a title="https://www.instructure.com/policies/privacy" href="https://www.instructure.com/policies/privacy" target="_blank" rel="noopener noreferrer nofollow"></a></section><section data-annotation-id="annot_p17_6" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -61.2px -304.659px; left: 61.2px; top: 304.659px; width: 28.9219px; height: 14.4px;"><a title="https://slack.com/privacy-policy" href="https://slack.com/privacy-policy" target="_blank" rel="noopener noreferrer nofollow"></a></section><section data-annotation-id="annot_p17_7" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -61.2px -327.159px; left: 61.2px; top: 327.159px; width: 31.2656px; height: 14.4px;"><a title="https://zoom.us/privacy" href="https://zoom.us/privacy" target="_blank" rel="noopener noreferrer nofollow"></a></section><section data-annotation-id="annot_p17_8" class="linkAnnotation" style="transform: matrix(0.816667, 0, 0, 0.816667, 0, 0); transform-origin: -61.2px -349.659px; left: 61.2px; top: 349.659px; width: 55.5645px; height: 14.4px;"><a title="https://learnosity.com/privacy-policy/" href="https://learnosity.com/privacy-policy/" target="_blank" rel="noopener noreferrer nofollow"></a></section></div></div><div class="PageAnnotations"></div></div></div><div style="overflow: hidden;"><div style="position: relative;"></div><div class="Page-comment-line-top-margin"></div><div class="PageContainerComments" style="height: 332.75px;"><div><div class="CommentContainerOffset" style="top: 330.75px; height: 0px;"></div></div></div><div style="position: relative;"></div></div></div><div class="ScreenreaderAnnotations screenreader-only"><h2>Annotations</h2></div></div></div>
+
+
+
+</body></html>
